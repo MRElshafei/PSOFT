@@ -10,82 +10,96 @@
 </head>
 <body>
 
-    <form method="post" enctype="multipart/form-data" class="border-class">
-        <input type="hidden" asp-for="Project.ID" />
-        <div class="input-group">
-            <span class="input-group-text">Project Name</span>
-            <input asp-for="Project.ProjectName" class="form-control" />
+    <form method="post" enctype="multipart/form-data" >
+        <div class="card card-primary">
+            <h3 class="card-header" > <i class="fas fa-edit"></i> Project Form</h3>
+            <div class="card-body">
+                <input type="hidden" asp-for="Project.ID" />
+                <label class="form-label">Projct Name</label>
+                <div class="input-group">
 
-        </div>
-        <br />
-        <div class="input-group">
-            <span class="input-group-text">Project Location</span>
-            <input asp-for="Project.Location" class="form-control" />
-        </div>
-        <br />
-        <div class="input-group">
-            <span class="input-group-text">Project Category</span>
-            <input type="text" aria-label="First name" class="form-control" asp-for="Project.Category">
-        </div>
-        <br />
-        <div class="input-group">
-            <span class="input-group-text"> Project Owner</span>
-            <input type="text" aria-label="First name" class="form-control" asp-for="Project.Owner">
-        </div>
-        <br />
-        <div class="input-group">
-            <span class="input-group-text"> ptoject Consultant</span>
-            <input type="text" aria-label="First name" class="form-control" asp-for="Project.Consultant">
-        </div>
-        <br />
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Currency</label>
-            <select class="form-select" id="Currency" onchange="getSelectValue()" asp-for="Project.Currency">
-                <option value="EGP">EGP</option>
-                <option value="$">$</option>
-                <option value="€">€</option>
-                <option value="£">£</option>
-            </select>
-        </div>
-        <br />
+                    <br />
+                    <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
+                    <input asp-for="Project.ProjectName" class="form-control" />
 
-        <div class="form-group row">
-
-            <div class="col-sm-10">
-
-                <div class="custom-file">
-
-                    <input asp-for="ifcFile" class="custom-file-input form-control">
-                    <label class="custom-file-label">Click here to select IFC File </label>
                 </div>
+                <br />
+                <label class="form-label">Projct Location</label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                    <input asp-for="Project.Location" class="form-control" />
+                </div>
+                <br />
+                <label class="form-label">Projct Category</label>
+
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                    <input type="text" aria-label="First name" class="form-control" asp-for="Project.Category">
+                </div>
+                <br />
+                <label class="form-label">Projct Owner</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-toolbox"></i></span>
+                    <input type="text" aria-label="First name" class="form-control" asp-for="Project.Owner">
+                </div>
+                <br />
+                <label class="form-label">Projct Consultant</label>
+                <div class="input-group">
+                    <span class="input-group-text"> <i class="fas fa-hard-hat"></i></span>
+                    <input type="text" aria-label="First name" class="form-control" asp-for="Project.Consultant">
+                </div>
+                <br />
+                <label class="form-label">Currency</label>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-money-bill-alt"></i></label>
+                    <select class="form-select" id="Currency" onchange="getSelectValue()" asp-for="Project.Currency">
+                        <option value="EGP">EGP</option>
+                        <option value="$">$</option>
+                        <option value="€">€</option>
+                        <option value="£">£</option>
+                    </select>
+                </div>
+                <br />
+
+                <div class="form-group row">
+
+                    <div class="col-sm-10">
+                       
+                        <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-upload"></i></label>
+                        <div class="input-group">
+                            <input asp-for="ifcFile" class="custom-file-input form-control">
+                            <label class="custom-file-label">Click here to select IFC File </label>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a class="btn btn-danger" asp-page="./Projects">Cancel</a>
+                </div>
+
+                @*This jquery code is required to display the selected
+        file name in the file upload controls*@
+
+                @section Scripts {
+                    <script>
+                        $(document).ready(function () {
+                            $('.custom-file-input').on("change", function () {
+                                var fileName = $(this).val().split("\\").pop();
+                                $(this).next('.custom-file-label').html(fileName);
+                            });
+                        });
+                        var currency = document.getElementById("Currency");
+                        var selected = currency.options[currency.selectedIndex].value;
+                        console.log(selected);
+                        Project.Currency = selected;
+                    </script>
+                }
             </div>
         </div>
-        <br />
-        <div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-danger" asp-page="./Projects">Cancel</a>
-        </div>
-
-        @*This jquery code is required to display the selected
-            file name in the file upload controls*@
-
-        @section Scripts {
-            <script>
-                $(document).ready(function () {
-                    $('.custom-file-input').on("change", function () {
-                        var fileName = $(this).val().split("\\").pop();
-                        $(this).next('.custom-file-label').html(fileName);
-                    });
-                });
-                var currency = document.getElementById("Currency");
-                var selected = currency.options[currency.selectedIndex].value;
-                console.log(selected);
-                Project.Currency = selected;
-            </script>
-
-
-        }
-    </form>
+</form>
 
 
 </body>
