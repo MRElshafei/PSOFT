@@ -20,12 +20,14 @@ namespace Psoft.Pages.WebsitePages
 
         private readonly IManageProjects manageProjects;
 
+        public string ProjectName { get; set; }
+
         private readonly IManageBOQ IManageBOQ;
 
 
         public BOQDTOList ItemsList { get; set; }
 
-        public BOQModel(IManageProject manageProject, IManageBOQ IManageBOQ,IManageProjects manageProjects)
+        public BOQModel(IManageProject manageProject, IManageBOQ IManageBOQ, IManageProjects manageProjects)
         {
 
             this.Project = manageProject;
@@ -42,6 +44,7 @@ namespace Psoft.Pages.WebsitePages
             ItemsList = IManageBOQ.GetITemsList();
 
 
+            ProjectName = manageProjects.getActivatedProjectName();
 
             string Path = manageProjects.getPathOfActivatedProject();
             if (Path == null)

@@ -23,6 +23,9 @@
 	<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
 		Cost Estimation
 	</h3>
+	<h6 style="color:steelblue" class="card-header text-center font-weight-bold text-uppercase py-4">
+		@Model.ProjectName
+	</h6>
 	<div class="card-body">
 		<div class="table-editable">
 			<span class="table-add float-right mb-3 mr-2">
@@ -57,7 +60,7 @@
 						<tr>
 							<th class="pt-3-half">
 								<label class="form-check-label ">
-									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Slabs" style="background-color:transparent;">
+									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Slabs" style="background-color:transparent;">
 								</label>
 
 
@@ -123,8 +126,8 @@
 
 
 								<td class="pt-3-half" contenteditable="true">M3</td>
-								<td class="pt-3-half dir1" contenteditable="true"></td>
-								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="pt-3-half dir1" contenteditable="true">0</td>
+								<td class="pt-3-half dir2" contenteditable="true">0</td>
 								<td class="result slabv1 totaldir"></td>
 								<td id="v1" class="value1" contenteditable="true">
 									@(Math.Round((slab.Slabvolume),2))
@@ -158,7 +161,7 @@
 							<th class="pt-3-half">
 
 								<label class="form-check-label ">
-									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Beams" style="background-color:transparent;">
+									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Beams" style="background-color:transparent;">
 								</label>
 
 
@@ -224,8 +227,8 @@
 							<tr>
 								<td class="pt-3-half" contenteditable="true">@Beam.BeamName</td>
 								<td class="pt-3-half" contenteditable="true">M3</td>
-								<td class="pt-3-half dir1" contenteditable="true"></td>
-								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="pt-3-half dir1" contenteditable="true">0</td>
+								<td class="pt-3-half dir2" contenteditable="true">0</td>
 								<td class="result beamv1 totaldir"></td>
 								<td id="v1" class="value1" contenteditable="true">
 									@Math.Round((Beam.BeamVolum / 1000000000), 2)
@@ -258,7 +261,7 @@
 						<tr>
 							<th class="pt-3-half">
 								<label class="form-check-label ">
-									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Wall" style="background-color:transparent;">
+									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Wall" style="background-color:transparent;">
 								</label>
 
 							</th>
@@ -325,8 +328,8 @@
 								<td class="pt-3-half" contenteditable="true">@wall.WallName</td>
 
 								<td class="pt-3-half" contenteditable="true">M3</td>
-								<td class="pt-3-half dir1" contenteditable="true"></td>
-								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="pt-3-half dir1" contenteditable="true">0</td>
+								<td class="pt-3-half dir2" contenteditable="true">0</td>
 								<td class="result wallv1 totaldir"></td>
 								<td id="v1" class="value1" contenteditable="true">
 									@Math.Round((wall.WallVolum / 1000000000), 2)
@@ -370,7 +373,7 @@
 								<span style="display:none;">@{i++;}</span>
 
 								<label class="form-check-label ">
-									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Column" style="background-color:transparent;">
+									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Column" style="background-color:transparent;">
 								</label>
 
 							</th>
@@ -439,8 +442,8 @@
 							<tr>
 								<td class="pt-3-half" contenteditable="true">@Col.ColumName</td>
 								<td class="pt-3-half" contenteditable="true">M3</td>
-								<td class="pt-3-half dir1" contenteditable="true"></td>
-								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="pt-3-half dir1" contenteditable="true">0</td>
+								<td class="pt-3-half dir2" contenteditable="true">0</td>
 								<td class="result colv1 totaldir"></td>
 								<td id="v1" class="value1" contenteditable="true">
 
@@ -546,23 +549,23 @@
 <tr class="hide">
 
 
-												<td class="pt-3-half" contenteditable="true"></td>
-													<td class="pt-3-half" contenteditable="true">M3</td>
-													<td class="value2" contenteditable="true">12</td>
-															<td id="v1" class="value1" contenteditable="true">
-															<td class="result wallv1" contenteditable="true"></td>
+														<td class="pt-3-half" contenteditable="true"></td>
+															<td class="pt-3-half" contenteditable="true">M3</td>
+															<td class="value2" contenteditable="true">12</td>
+																	<td id="v1" class="value1" contenteditable="true">
+																	<td class="result wallv1" contenteditable="true"></td>
 
-														  <td class="pt-3-half">
-															<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-															<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-														  </td>
-														  <td>
-															<span class="table-remove"><button
-																type="button"
-																class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
-																Remove
-															  </button></span>
-														  </td>
+																  <td class="pt-3-half">
+																	<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+																	<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+																  </td>
+																  <td>
+																	<span class="table-remove"><button
+																		type="button"
+																		class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+																		Remove
+																	  </button></span>
+																  </td>
 </tr>
 `;
 
