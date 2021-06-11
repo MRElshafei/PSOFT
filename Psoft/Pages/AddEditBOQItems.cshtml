@@ -1,0 +1,39 @@
+﻿@page
+@model Psoft.Pages.AddEditBOQItemsModel
+@{
+}
+<form method="post">
+	<input type="hidden"  />
+	<div class="form-group">
+		<label asp-for="_BOQDTO.Item_Description"></label>
+		<input asp-for="_BOQDTO.Item_Description" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="_BOQDTO.Unit"></label>
+
+
+		<select asp-for="_BOQDTO.Unit" class="form-select form-select-sm" aria-label=".form-select-sm example">
+
+			<option value="M3">M3</option>
+			<option value="M2">M2</option>
+			<option value="M'">M'</option>
+		</select>
+
+	</div>
+	<div class="form-group">
+		<label asp-for="_BOQDTO.Unit_Price"></label>
+		<input asp-for="_BOQDTO.Unit_Price" class="form-control" />
+	</div>
+
+	<div>
+
+		<input type="text" name="myresult">
+
+	</div>
+	
+
+
+
+	<button type="submit" class="btn btn-primary">Save</button>
+
+</form>

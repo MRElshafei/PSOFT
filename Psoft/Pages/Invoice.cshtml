@@ -1,0 +1,245 @@
+﻿@page
+@model Psoft.Pages.InvoiceModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <style>
+        .pt-3-half {
+            padding-top: 1.4rem;
+        }
+    </style>
+
+    <!-- Editable table -->
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+            Invoice
+        </h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+                <span class="table-add float-right mb-3 mr-2">
+                    <a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+                </span>
+                <table class="table table-bordered table-responsive-md table-striped text-center invoice" @*id="invoice"*@>
+                    <thead>
+
+                        <tr>
+                            <th class="text-center">Item Descreption</th>
+                            <th class="text-center">Unit</th>
+                            <th class="text-center" colspan="3">Quantity</th>
+                            <th class="text-center">Unit Price</th>
+                            <th class="text-center">Spending Ratio</th>
+                            <th class="text-center">Total Cost</th>
+                            <th class="text-center">Sort</th>
+                            <th class="text-center">Remove</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center" colspan="2"></th>
+                            <th class="text-center">Precedent</th>
+                            <th class="text-center">Current</th>
+                            <th class="text-center">Total</th>
+                            <th class="text-center" colspan="5"></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        @foreach (var Item in Model.ItemsList.BOQs)
+                        {
+                            <tr>
+                                <td class="pt-3-half" contenteditable="true">@Item.Item_Description</td>
+                                <td class="pt-3-half" contenteditable="true">@Item.Unit</td>
+                                <td class="pt-3-half Precedent" contenteditable="true" onblur="calculatTotalCost()">3</td>
+                                <td class="pt-3-half Current" contenteditable="true" onblur="calculatTotalCost()">0</td>
+
+                                <td class="pt-3-half total" contenteditable="true" @*id="total"*@>0</td>
+                                <td class="pt-3-half unitePrice" contenteditable="true" onblur="calculatTotalCost()" @*id="unitePrice"*@>@Item.Unit_Price</td>
+                                <td class="pt-3-half" contenteditable="true">100%</td>
+                                <td class="pt-3-half totalPrice" contenteditable="true" id="tPrice"></td>
+                                <td class="pt-3-half">
+                                    <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+                                    <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+                                </td>
+                                <td>
+                                    <span class="table-remove">
+                                        <button type="button"
+                                                class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+                                            Remove
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="2">Total Cost Of Invoice</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="totalCost"></th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+
+                        </tr>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="2">Discount Of Last Invoice</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="discount" onblur="calculatTotalCost()">0</th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+                        </tr>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="2">Net Cost Of Invoice</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="net"></th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+                        </tr>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true">Business Insurance Discount</th>
+                            <th class="pt-3-half text-center" contenteditable="true">10%</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="bid" onblur="calculatTotalCost()">0</th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+
+                        </tr>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true"> Advanced Payment Discount</th>
+                            <th class="pt-3-half text-center" contenteditable="true">20%</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="apd" onblur="calculatTotalCost()">0</th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+
+                        </tr>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="2">Other Discounts</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="od" onblur="calculatTotalCost()">0</th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+                        </tr>
+                        <tr>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="2">Net Receivable</th>
+                            <th class="pt-3-half text-center" contenteditable="true" colspan="7" id="nr"></th>
+                            <th class="pt-3-half text-center" contenteditable="true">EGP</th>
+                        </tr>
+                        <a class="btn btn-outline-primary calc">Calculate Total Cost</a>
+
+                    </tfoot>
+                </table>
+                <a class="btn btn-outline-primary calc">Calculate Total Cost</a>
+            </div>
+        </div>
+    </div>
+    <!-- Editable table -->
+
+    <script>
+
+        //You can make New row with all functions
+        const $tableID = $('#table'); const $BTN = $('#export-btn'); const $EXPORT = $('#export');
+        const newTr = `
+<tr class="hide">
+                                              <td class="pt-3-half" contenteditable="true"></td>
+                                              <td class="pt-3-half" contenteditable="true"></td>
+                                              <td class="pt-3-half Precedent" contenteditable="true" onblur="calculatTotalCost()">0</td>
+                                              <td class="pt-3-half Current" contenteditable="true" onblur="calculatTotalCost()">0</td>
+                                              <td class="pt-3-half total" contenteditable="true" onblur="calculatTotalCost()">0</td>
+                                              <td class="pt-3-half unitePrice" contenteditable="true" onblur="calculatTotalCost()">0</td>
+                                              <td class="pt-3-half" contenteditable="true">100%</td>
+                                              <td class="pt-3-half totalPrice" contenteditable="true" id="tPrice">0</td>
+                                              <td class="pt-3-half">
+                                                <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+                                                <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+                                              </td>
+                                              <td>
+                                                <span class="table-remove"><button
+                                                    type="button"
+                                                    class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+                                                    Remove
+                                                  </button></span>
+                                              </td>
+</tr>
+`;
+
+        $('.table-add').on('click', 'i', () => {
+            const $clone = $tableID.find('tbodytr').last().clone(true).removeClass('hide table-line'); if ($tableID.find('tbody tr').length >= 0) {
+                $('tbody').append(newTr); $tableID.find('table').append($clone);
+            }
+        });
+        $tableID.on('click', '.table-remove', function () { $(this).parents('tr').detach(); });
+        $tableID.on('click', '.table-up', function () { const $row = $(this).parents('tr'); if ($row.index() === 0) { return; } $row.prev().before($row.get(0)); });
+        $tableID.on('click', '.table-down', function () { const $row = $(this).parents('tr'); $row.next().after($row.get(0)); }); // A few jQuery helpers for exporting only jQuery.fn.pop = [].pop;
+        jQuery.fn.shift = [].shift;
+        $BTN.on('click', () => {
+            const $rows = $tableID.find('tr:not(:hidden)'); const headers = []; const data = []; // Get the headers(add special header logic here)
+            $($rows.shift()).find('th:not(:empty)').each(function () { headers.push($(this).text().toLowerCase()); }); // Turn all existing rows into a loopablearray
+            $rows.each(function () {
+                const $td = $(this).find('td'); const h = {}; // Use the headers from earlier to name our hash keys headers.
+                forEach((header, i) => {
+                    h[header] = $td.eq(i).text();
+                });
+                data.push(h);
+            }); // Output the result
+            $EXPORT.text(JSON.stringify(data));
+        });
+
+
+
+
+
+        //This function used to make Auto calculation for the whole Table with just move your mouse from the Table cell
+        function calculatTotalCost() {
+            $(function () {
+                var Total= 0;
+                var totalCost = 0;
+                var discount = 0;
+                var afterDiscounts = 0;
+                $('.invoice tr').each(function (i) {
+                    totalCost = parseFloat($(this).find('.Precedent').text()) + parseFloat($(this).find('.Current').text());
+                    $(this).find('.total').text(totalCost);
+
+                    var sum = parseFloat($(this).find('.total').text()) * parseFloat($(this).find('.unitePrice').text());
+                    $(this).find('.totalPrice').text(sum);
+
+                    Total += (+$(this).find('#tPrice').text());
+                    $('.invoice tr ').find('#totalCost').text(Total);
+
+                    discount = Total - parseFloat($('.invoice tr').find('#discount').text());
+                    $(this).find('#net').text(discount);
+
+                    afterDiscounts = discount - (parseFloat($('.invoice tr').find('#bid').text()) + parseFloat($('.invoice tr').find('#apd').text()) + parseFloat($('.invoice tr').find('#od').text()));
+                    $(this).find('#nr').text(afterDiscounts);
+            });
+        });
+        }
+
+        //This function used to make Auto calculation for the whole Table with just click on "Calculate Total Cost" button
+         $('.calc').click(function () {
+        var Total = 0;
+        var discount = 0;
+        var afterDiscounts = 0;
+        var totalCost = 0;
+             $('.invoice tr').each(function (i) {
+                 totalCost = parseFloat($(this).find('.Precedent').text()) + parseFloat($(this).find('.Current').text());
+                 $(this).find('.total').text(totalCost);
+
+                 var sum = parseFloat($(this).find('.total').text()) * parseFloat($(this).find('.unitePrice').text());
+                 $(this).find('.totalPrice').text(sum);
+
+                 Total += (+$(this).find('#tPrice').text());
+                 $('.invoice tr ').find('#totalCost').text(Total);
+
+                 discount = Total - parseFloat($('.invoice tr').find('#discount').text());
+                 $(this).find('#net').text(discount);
+
+                 afterDiscounts = discount - (parseFloat($('.invoice tr').find('#bid').text()) + parseFloat($('.invoice tr').find('#apd').text()) + parseFloat($('.invoice tr').find('#od').text()));
+                 $(this).find('#nr').text(afterDiscounts);
+             });
+        });
+
+
+    </script>
+</body>
+</html>
+

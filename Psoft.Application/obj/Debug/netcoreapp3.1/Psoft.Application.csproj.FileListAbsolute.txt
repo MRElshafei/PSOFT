@@ -1,0 +1,28 @@
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Application.deps.json
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Application.dll
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Application.pdb
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\ITI\gradution project\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.csprojAssemblyReference.cache
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.AssemblyInfoInputs.cache
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.AssemblyInfo.cs
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.csproj.CoreCompileInputs.cache
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.csproj.CopyComplete
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.dll
+F:\ITI\gradution project\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.pdb
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Application.deps.json
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Application.dll
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Application.pdb
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\PSOFT\Psoft\Psoft.Application\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.csprojAssemblyReference.cache
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.AssemblyInfoInputs.cache
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.AssemblyInfo.cs
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.csproj.CoreCompileInputs.cache
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.csproj.CopyComplete
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.dll
+F:\PSOFT\Psoft\Psoft.Application\obj\Debug\netcoreapp3.1\Psoft.Application.pdb

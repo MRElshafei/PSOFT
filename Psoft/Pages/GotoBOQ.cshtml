@@ -1,0 +1,58 @@
+﻿@page
+@model Psoft.Pages.GotoBOQModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="jumbotron text-center">
+		<h1>Bill OF Quantity</h1>
+		<p>organize your project BOQ facilely</p>
+
+
+		<img src="~/imgs/Construction-Management-Page-Icon-no-words.jpg" class="rounded-circle" alt="Cinque Terre" style="width:120px;height:120px;"> 
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+
+				<a asp-page="BOQ" class="btn btn-primary btn-lg btn-block">Import data From Cost Esimation</a>
+
+
+
+				<p>bring items from the Cost Estimation that build from Bim Model also you can edit this data.</p>
+
+			</div>
+			<div class="col-sm-4">
+
+				<a asp-page="BlankBOQ" class="btn btn-primary btn-lg btn-block">Create Your own</a>
+
+				<p>Build Your BOQ From Scratch.</p>
+
+			</div>
+
+			
+
+			<div class="col-sm-4">
+
+				<a asp-page="ImportExport" asp-route-ItemId="" class="btn btn-primary btn-lg btn-block"> Import .xlsx </a>
+
+
+				<p>IF you already create it befor Don't worry you can import your Excel file.</p>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+﻿@page
+@model Psoft.Pages.WebsitePages.BIM_ModelModel
+@{
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>xViewer</title>
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+	<link rel="stylesheet" href="~/css/BIM_Model/BIM_Model.css" type="text/css" />
+	<link rel="stylesheet" href="~/css/BIM_Model/all.min.css" />
+	<link href="~/css/BIM_Model/Calendar.css" rel="stylesheet">
+
+	<script src="~/js/gl-matrix.js"></script>
+	<script src="~/js/webgl-utils.js"></script>
+	<script type="text/javascript" src="~/js/xbim-product-type.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-state.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-shaders.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-model-geometry.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-model-handle.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-binary-reader.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-triangulated-shape.debug.js"></script>
+	<script type="text/javascript" src="~/js/xbim-viewer.debug.js"></script>
+	<script src="~/js/jquery.js"></script>
+	<script src="~/js/BIM+Model/all.min.js"></script>
+
+	<script src="~/js/XBIM/xbim-viewer.debug.bundle.js"></script>
+	<script src="~/js/XBIM/Plugins/NavigationCube/xbim-navigation-cube-shaders.debug.js"></script>
+	<script src="~/js/XBIM/Plugins/NavigationCube/xbim-navigation-cube.debug.js"></script>
+	<script src="~/js/XBIM/Plugins/NavigationCube/xbim-navigation-cube-textures.debug.js"></script>
+	<script src="~/js/XBIM/Plugins/NavigationHome/xbim-navigation-home-textures.debug.js"></script>
+	<script src="~/js/XBIM/Plugins/NavigationHome/xbim-navigation-home.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-product-type.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-state.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-shaders.debug.js"></script>
+	<script src="~/js/xbim-model-geometry.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-model-handle.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-binary-reader.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-triangulated-shape.debug.js"></script>
+	<script src="~/js/XBIM/Viewer/xbim-model-geometry.debug.js"></script>
+
+	<script src="~/js/BIM_Model/jquery.min.js" type="text/javascript"></script>
+	<script src="~/js/BIM_Model/moment.min.js" type="text/javascript"></script>
+	<script src="~/js/BIM_Model/Calendar.js" type="text/javascript"></script>
+</head>
+
+
+<body>
+	@*d-flex*@
+	@*justify-content-around*@
+	@*align-items-center*@
+
+	<div id="ayman" class="ayman d-flex align-content-stretch flex-nowrap">
+		<i class="fas fa-sync" onclick="viewer.navigationMode ='orbit'"></i>
+		<i class="fas fa-crop-alt" onclick="viewer.clip();"></i>
+		<i class="fas fa-crop" onclick="viewer.unclip();"></i>
+		<i class="fas fa-search-plus" onclick="viewer.navigationMode = 'zoom'"></i>
+		<i class="fas fa-eye-slash" onclick="viewer.setState(xState.HIDDEN, types.IFCSPACE)"></i>
+		<i class="fas fa-camera"></i>
+
+		<div class="align-items-center justify-content-around d-flex input-group">
+			<input type="file" id="input" accept=".wexbim" class="form-control btn btn-warning" aria-describedby="inputGroupFileAddon04" aria-label="Upload" />
+		</div>
+
+
+	</div>
+	<div>
+
+	</div>
+	<div id="info" style=" width: 350px;height: 150px; background-color: #b1b9ea;">
+		@*<div>
+				Selected ID: <span id="id"></span>
+			</div>
+			<div>
+				Framerate (FPS): <span id="fps"></span>
+			</div>*@
+		<div id="models">
+		</div>
+		<div id="errLog" style="color: red">
+		</div>
+		<label>
+			Choose Select Style :
+		</label>
+		<select id="cmbSelection" onclick="initHighlighting();" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="width:100px">
+			<option value="noAction">noAction </option>
+			<option value="select">Select</option>
+			<option value="hide">Hide</option>
+
+		</select>
+		<button onclick="viewer.resetStates();">Reset</button>
+	</div>
+	<canvas id="xBIM-viewer"
+			style="width: 800px;
+        height: 450px;
+
+        position: relative;
+        left: 30%;
+        top: 20%;" class="p-3 mb-2 bg-light text-dark" "></canvas>
+
+	<script type="text/javascript">
+		var Flag = true;
+		document.getElementById("ayman").addEventListener('click', (event) => {
+			var selectedElement = event.target;
+			var Chil = event.srcElement.parentElement.children;
+
+			for (var i = 0; i < Chil.length; i++) {
+				Chil[i].style.backgroundColor = 'rgba(46, 46, 46, 0)'
+			}
+
+			selectedElement.style.backgroundColor = 'rgba(46, 46, 46, 0.64)'
+		});
+		//document.getElementById("infooooooooo").addEventListener("click", () => {
+
+		//    if (Flag == true) {
+		//        document.getElementById("LowerPart").style.display = "none";
+		//        Flag = false;
+		//    } else {
+		//        document.getElementById("LowerPart").style.display = "block";
+		//        Flag = true;
+		//    }
+
+		//})
+		var models = [];
+		var viewer = new xViewer("xBIM-viewer");
+		viewer.background = [255, 255, 255];
+		viewer.on("error", function (arg) {
+			var container = viewer._canvas.parentNode;
+			if (container) {
+				//preppend error report
+				container.innerHTML = "<pre style='color:red;'>" + arg.message + "</pre>" + container.innerHTML;
+			}
+		});
+		viewer.on("pick", function (arg) {
+			var span = document.getElementById("id");
+			if (span) {
+				span.innerHTML = arg.id;
+			}
+		});
+		viewer.on("loaded", function (model) {
+			models.push({ id: model.id, name: model.tag, stopped: false });
+			refreshModelsPanel();
+		});
+		viewer.on("fps", function (fps) {
+			var span = document.getElementById("fps");
+			if (span) {
+				span.innerHTML = fps;
+			}
+		});
+		$("#input").change(function () {
+			if (!input.files) return;
+
+			var file = this.files[0];
+			if (!file) return;
+			viewer.load(file, file.name);
+			//var navCube = new xNavigationCube();
+			//viewer.addPlugin(navCube);
+			//navCube.ratio = .1;
+			viewer.start();
+		});
+		function refreshModelsPanel() {
+			var html = "";
+			models.forEach(function (m) {
+				html += "<div> " + m.name + "&nbsp;";
+				html += "<button onclick='unload(" + m.id + ")'> Unload </button>";
+				if (m.stopped)
+					html += " <button onclick='start(" + m.id + ")'> Start </button> ";
+				else
+					html += " <button onclick='stop(" + m.id + ")'> Stop </button> ";
+				html += "</div>";
+			});
+			$("#models").html(html);
+		}
+		function unload(id) {
+			viewer.unload(id);
+			models = models.filter(function (m) { return m.id !== id });
+			refreshModelsPanel();
+		}
+		function stop(id) {
+			viewer.stop(id);
+			var model = models.filter(function (m) { return m.id === id }).pop();
+			model.stopped = true;
+			refreshModelsPanel();
+		}
+		function start(id) {
+			viewer.start(id);
+			var model = models.filter(function (m) { return m.id === id }).pop();
+			model.stopped = false;
+			refreshModelsPanel();
+		}
+		function initHighlighting() {
+			viewer.on('pick', function (args) {
+				var cmb = document.getElementById('cmbSelection');
+				var option = cmb.value;
+				switch (option) {
+					case 'select':
+						viewer.setState(xState.HIGHLIGHTED, [args.id]);
+						break;
+					case 'hide':
+						viewer.setState(xState.HIDDEN, [args.id]);
+
+						break;
+					default:
+						break;
+				}
+			});
+		};
+		var cube = new xNavigationCube();
+		viewer.addPlugin(cube);
+	</script>
+</body>
+</html>
+
+@*<div class="GreyDiv p-2">
+		<div class="UpperPart w-100" id="infooooooooo">
+			<h6 class="text-white text-center p-1">Info...</h6>
+		</div>
+		<div id="LowerPart" class="LowerPart w-100">
+			<p class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur atque saepe dolores alias natus facilis laborum quis numquam aut ea vero tempore voluptates, omnis non expedita, repellat fugit! Ipsum, ut.</p><br />
+		</div>
+	</div>*@
+
+
+
+@*<div class="LeftNavBar">
+		<div>
+			<h5 class="text-center text-white  bg-secondary">Project Image</h5>
+			<div>
+				<img src="~/imgs/download.png" class="w-100" />
+			</div>
+		</div>
+
+		<div>
+			<h5 class="text-center text-white bg-secondary">Project Elements</h5>
+			<div class="d-flex flex-column justify-content-around align-items-center ProjectElements">
+				<div>
+					<i class="fas fa-align-center border-white mx-2 my-2 p-2 text-white"></i>
+					<i class="fas fa-vector-square border-white mx-2 my-2 p-2 text-white"></i>
+				</div>
+				<div>
+					<i class="fas fa-columns border-white mx-2 my-2 p-2 text-white"></i>
+					<i class="fas fa-cube border-white p-2 mx-2 my-2 text-white"></i>
+				</div>
+			</div>
+
+			<div class="input-group mb-3">
+				<select name="DependantElements" id="DependantElements" class="form-select mt-2 d-block w-100 mx-2">
+					@foreach (var Col in Model.ListOfColumns)
+					{
+						@:<option>@Col.ColumName</option>
+					}
+
+					@foreach (var Slab in Model.ListOfSlabs)
+					{
+						@:<option>@Slab.SlabName</option>
+					}
+
+					@foreach (var Beam in Model.ListOfBeams)
+					{
+						@:<option>@Beam.BeamName</option>
+					}
+
+					@foreach (var Wall in Model.ListOfWalls)
+					{
+						@:<option>@Wall.WallName</option>
+					}
+				</select>
+			</div>
+		</div>
+
+
+		<div>
+			<h5 class="text-center text-white bg-secondary">Project Participants</h5>
+			<div class="d-flex align-items-center mt-1">
+				<img src="~/imgs/0da66dae57cbbe93819bd40ce61e3535 copy.png" class="w-25 mx-1 rounded" />
+				<h5 class="text-white h6">Project Owner</h5>
+			</div>
+
+			<div class="d-flex align-items-center mt-1">
+				<img src="~/imgs/133df44d74ff69de20d1671b3794f43e copy.png" class="w-25 mx-1 rounded" />
+				<h5 class="text-white h6">Project Contractor</h5>
+			</div>
+
+			<div class="d-flex align-items-center mt-1">
+				<img src="~/imgs/133df44d74ff69de20d1671b3794f43e copy.png" class="w-25 mx-1 rounded" />
+				<h5 class="text-white h6">Project Consultant</h5>
+			</div>
+		</div>
+	</div>*@
+
+
+
+@*<div class="ayman d-flex justify-content-around align-items-center " style="float:left">
+
+
+		<span class="fa-stack fa-2x" style="width:30%">
+			<i class="fas fa-circle fa-stack-2x"></i>
+			<i class="fas fa-flag fa-stack-1x fa-inverse"></i>
+			<span class="fa-stack fa-2x" style="width:60%">
+
+				<i class="fas fa-square fa-stack-2x"></i>
+				<i class="fas fa-terminal fa-stack-1x fa-inverse"></i>
+			</span>
+			<span class="fa-stack fa-2x" style="width:90%">
+
+				<i class="fas fa-square fa-stack-2x"></i>
+				<i class="fas fa-terminal fa-stack-1x fa-inverse"></i>
+			</span>
+		</span>
+	</div>*@

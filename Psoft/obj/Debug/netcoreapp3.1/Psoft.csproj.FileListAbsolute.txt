@@ -1,0 +1,278 @@
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\appsettings.json
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.StaticWebAssets.xml
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.exe
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.deps.json
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.runtimeconfig.json
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.runtimeconfig.dev.json
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.pdb
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Views.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Views.pdb
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.csprojAssemblyReference.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.AssemblyInfoInputs.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.AssemblyInfo.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.csproj.CoreCompileInputs.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.MvcApplicationPartsAssemblyInfo.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.MvcApplicationPartsAssemblyInfo.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorAssemblyInfo.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorAssemblyInfo.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\staticwebassets\Psoft.StaticWebAssets.Manifest.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\staticwebassets\Psoft.StaticWebAssets.xml
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\scopedcss\bundle\Psoft.styles.css
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.TagHelpers.input.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.TagHelpers.output.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorCoreGenerate.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorTargetAssemblyInfo.cache
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorTargetAssemblyInfo.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.Views.pdb
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.csproj.CopyComplete
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.dll
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.pdb
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.genruntimeconfig.cache
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Rotativa.AspNetCore.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Common.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Geometry.Engine.Interop.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Ifc.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Ifc2x3.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Ifc4.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.IO.MemoryModel.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.ModelGeometry.Scene.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Tessellator.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Application.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\ActivatProject.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\AddEditBOQItems.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\BIM_Model.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\BlankBOQ.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\BOQ.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\CostEstimation.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\DeleteItemBOQ.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\DeleteProject.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\EditPlanning.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\EditProject.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\GotoBOQ.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\ImportExport.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Invoice.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\NotFound.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Pdfpage.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Planning.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Projects.cshtml.g.cs
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\NOTICE.TXT
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.OOXML.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.OpenXml4Net.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.OpenXmlFormats.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Application.pdb
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\ITI\gradution project\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\NOTICE.TXT
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\appsettings.json
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.StaticWebAssets.xml
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.exe
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.deps.json
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.runtimeconfig.json
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.runtimeconfig.dev.json
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.pdb
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Views.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Views.pdb
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.OOXML.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.OpenXml4Net.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\NPOI.OpenXmlFormats.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Rotativa.AspNetCore.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Common.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Geometry.Engine.Interop.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Ifc.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Ifc2x3.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Ifc4.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.IO.MemoryModel.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.ModelGeometry.Scene.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Xbim.Tessellator.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Application.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Application.pdb
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\PSOFT\Psoft\Psoft\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.csprojAssemblyReference.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.AssemblyInfoInputs.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.AssemblyInfo.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.csproj.CoreCompileInputs.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.MvcApplicationPartsAssemblyInfo.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.MvcApplicationPartsAssemblyInfo.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorAssemblyInfo.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorAssemblyInfo.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\staticwebassets\Psoft.StaticWebAssets.Manifest.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\staticwebassets\Psoft.StaticWebAssets.xml
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\scopedcss\bundle\Psoft.styles.css
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.TagHelpers.input.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.TagHelpers.output.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorCoreGenerate.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\ActivatProject.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\AddEditBOQItems.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\BIM_Model.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\BlankBOQ.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\BOQ.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\CostEstimation.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\DeleteItemBOQ.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\DeleteProject.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\EditPlanning.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\EditProject.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\GotoBOQ.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\ImportExport.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Invoice.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\NotFound.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Pdfpage.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Planning.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Projects.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_LoginPartial.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorTargetAssemblyInfo.cache
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.RazorTargetAssemblyInfo.cs
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.Views.pdb
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.csproj.CopyComplete
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.dll
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.pdb
+F:\PSOFT\Psoft\Psoft\obj\Debug\netcoreapp3.1\Psoft.genruntimeconfig.cache

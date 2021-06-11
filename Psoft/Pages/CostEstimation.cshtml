@@ -1,0 +1,859 @@
+﻿
+@page
+@model Psoft.Pages.WebsitePages.CostEstimationModel
+@{
+}
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+<script>
+	tr { display: block; float: left; }
+	th, td { display: block; }</script>
+<!-- Editable table -->
+<div class="card">
+
+
+	<span style="display:none;">@{int i = 0;}</span>
+	<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+		Cost Estimation
+	</h3>
+	<div class="card-body">
+		<div class="table-editable">
+			<span class="table-add float-right mb-3 mr-2">
+				<a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+			</span>
+			<form method="post">
+				<input type="hidden" asp-for="BOQDTOList.BOQs[i].ID" />
+
+
+				<table class="table table-bordered table-responsive-md table-striped text-center" id="table">
+
+
+					<thead>
+						<a id="b1" class="btn btn-outline-primary">Calculate Total Cost</a>
+						<a class="btn btn-outline-primary" onclick="export2csv()">Export to Excel</a>
+
+						<a class="btn btn-outline-primary" id="btPrint" onclick="createPDF()">Create PDF</a>
+						<button type="submit" class="btn btn-primary">Save</button>
+						<tr>
+							<th class="text-center">Item Description</th>
+							<th class="text-center">Unit</th>
+							<th class="text-center">Direct Cost</th>
+							<th class="text-center">InDirect Cost</th>
+							<th class="text-center">Total Cost</th>
+							<th class="text-center">Quantity</th>
+							<th class="text-center">Unit Cost</th>
+							<th class="text-center">Sort</th>
+							<th class="text-center">Remove</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="pt-3-half">
+								<label class="form-check-label ">
+									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Slabs" style="background-color:transparent;">
+								</label>
+
+
+
+							</th>
+							@{float cummCol = 0;
+								@foreach (var item in Model.ListOfSlabs)
+								{
+									cummCol = cummCol + item.Slabvolume;
+								}
+							}
+							<th>
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+								</label>
+							</th>
+							<th style="white-space: nowrap;" class="dir1" contenteditable="true">Material/Labor</th>
+							<th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
+							<th class="slabv2 totaldir fullresult">
+
+							</th>
+							<th class="text-center">
+								<label>
+
+									<input type="text" size="4" class="quant text-center" asp-for="BOQDTOList.BOQs[i].Quantity" value="@Math.Round(cummCol, 2)" style="background-color:transparent;">
+
+								</label>
+							</th>
+							<th>
+								<label>
+
+									<input type="text" size="4" class="unprice" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+
+								</label>
+							</th>
+
+							<th class="pt-3-half">
+								<span class="table-up">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+								</span>
+								<span class="table-down">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+								</span>
+							</th>
+							<th>
+								<span class="table-remove">
+									<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+										Remove
+									</button>
+								</span>
+							</th>
+						</tr>
+						<!-- This is our clonable table line -->
+
+						@foreach (var slab in Model.ListOfSlabs)
+						{
+
+							<tr>
+
+
+								<td class="pt-3-half" contenteditable="true">@slab.SlabName</td>
+
+
+								<td class="pt-3-half" contenteditable="true">M3</td>
+								<td class="pt-3-half dir1" contenteditable="true"></td>
+								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="result slabv1 totaldir"></td>
+								<td id="v1" class="value1" contenteditable="true">
+									@(Math.Round((slab.Slabvolume),2))
+								</td>
+								<td class="value2" contenteditable="true"></td>
+								<td class="pt-3-half">
+									<span class="table-up">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+									</span>
+									<span class="table-down">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+									</span>
+								</td>
+								<td>
+									<span class="table-remove">
+										<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+											Remove
+										</button>
+									</span>
+								</td>
+							</tr>
+
+
+						}
+
+
+
+						<!-- Beam Element-->
+						<span style="display:none;">@{i++;}</span>
+						<tr>
+							<th class="pt-3-half">
+
+								<label class="form-check-label ">
+									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Beams" style="background-color:transparent;">
+								</label>
+
+
+							</th>
+
+							@{float cumm = 0;
+								@foreach (var item in Model.ListOfBeams)
+								{
+									cumm = cumm + item.BeamVolum;
+								}
+							}
+
+
+
+							<th>
+
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+								</label>
+							</th>
+							<th style="white-space: nowrap;" class="dir1" contenteditable="true">Material/Labor</th>
+							<th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
+							<td class="fullresult beamv2 totaldir">
+							</td>
+							<th class="text-center">
+								<label>
+
+									<input type="text" size="4" class="quant1 text-center" asp-for="BOQDTOList.BOQs[i].Quantity" value="@Math.Round((cumm / 1000000000),2)" style="background-color:transparent;">
+
+								</label>
+
+
+							</th>
+							<th>
+								<label>
+
+									<input type="text" size="4" class="unprice1" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+
+								</label>
+							</th>
+
+
+							<td class="pt-3-half">
+								<span class="table-up">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+								</span>
+								<span class="table-down">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+								</span>
+							</td>
+							<td>
+								<span class="table-remove">
+									<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+										Remove
+									</button>
+								</span>
+							</td>
+
+						</tr>
+						@foreach (var Beam in Model.ListOfBeams)
+						{
+							<tr>
+								<td class="pt-3-half" contenteditable="true">@Beam.BeamName</td>
+								<td class="pt-3-half" contenteditable="true">M3</td>
+								<td class="pt-3-half dir1" contenteditable="true"></td>
+								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="result beamv1 totaldir"></td>
+								<td id="v1" class="value1" contenteditable="true">
+									@Math.Round((Beam.BeamVolum / 1000000000), 2)
+								</td>
+
+								<td class="value2" contenteditable="true"></td>
+
+
+								<td class="pt-3-half">
+									<span class="table-up">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+									</span>
+									<span class="table-down">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+									</span>
+								</td>
+								<td>
+									<span class="table-remove">
+										<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+											Remove
+										</button>
+									</span>
+								</td>
+							</tr>
+
+						}
+
+						<!-- Wall Element-->
+						<span style="display:none;">@{i++;}</span>
+						<tr>
+							<th class="pt-3-half">
+								<label class="form-check-label ">
+									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Wall" style="background-color:transparent;">
+								</label>
+
+							</th>
+
+							@{double cumm1 = 0;
+								@foreach (var item in Model.ListOfWalls)
+								{
+									cumm1 = cumm1 + item.WallVolum;
+								}
+							}
+							<th>
+
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+								</label>
+							</th>
+							<th style="white-space: nowrap;" class="dir1" contenteditable="true">Material/Labor</th>
+							<th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
+							<td class="fullresult wallv2 totaldir">
+							</td>
+							<th class="text-center">
+								<label>
+
+									<input type="text" size="4" class="quant2 text-center" asp-for="BOQDTOList.BOQs[i].Quantity" value="@Math.Round((cumm1 / 1000000000),2)" style="background-color:transparent;">
+
+								</label>
+
+
+							</th>
+							<th>
+								<label>
+
+									<input type="text" size="4" class="unprice2" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+
+								</label>
+							</th>
+
+
+
+
+							<td class="pt-3-half">
+								<span class="table-up">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+								</span>
+								<span class="table-down">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+								</span>
+							</td>
+							<td>
+								<span class="table-remove">
+									<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+										Remove
+									</button>
+								</span>
+							</td>
+
+
+						</tr>
+						@foreach (var wall in Model.ListOfWalls)
+						{
+
+							<tr>
+								<td class="pt-3-half" contenteditable="true">@wall.WallName</td>
+
+								<td class="pt-3-half" contenteditable="true">M3</td>
+								<td class="pt-3-half dir1" contenteditable="true"></td>
+								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="result wallv1 totaldir"></td>
+								<td id="v1" class="value1" contenteditable="true">
+									@Math.Round((wall.WallVolum / 1000000000), 2)
+
+
+								</td>
+								<td class="value2" contenteditable="true"></td>
+
+
+
+
+
+
+
+
+
+
+								<td class="pt-3-half">
+									<span class="table-up">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+									</span>
+									<span class="table-down">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+									</span>
+								</td>
+								<td>
+									<span class="table-remove">
+										<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+											Remove
+										</button>
+									</span>
+								</td>
+							</tr>
+						}
+
+
+						<!-- Coloum Element-->
+
+						<tr>
+							<th class="pt-3-half">
+								<span style="display:none;">@{i++;}</span>
+
+								<label class="form-check-label ">
+									<input type="text" size="20" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Column" style="background-color:transparent;">
+								</label>
+
+							</th>
+
+
+							@{float cumm2 = 0;
+
+								@foreach (var item in Model.ListOfColumns)
+								{
+									cumm2 = cumm2 + item.ColumVolum;
+
+								}
+							}
+							<th>
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+								</label>
+							</th>
+							<th style="white-space: nowrap;" class="dir1" contenteditable="true"> Material/Labor</th>
+							<th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
+
+							<td class="fullresult colv2 totaldir">
+							</td>
+							<th class="text-center">
+								<label>
+
+									<input type="text" size="4" class="quant3 text-center" asp-for="BOQDTOList.BOQs[i].Quantity" value="@Math.Round((cumm2 / 1000000000),2)" style="background-color:transparent;">
+
+								</label>
+
+
+							</th>
+							<th>
+								<label>
+
+									<input type="text" size="4" class="unprice3" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+
+								</label>
+							</th>
+
+							<td class="pt-3-half">
+								<span class="table-up">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+								</span>
+								<span class="table-down">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+								</span>
+							</td>
+
+							<td>
+								<span class="table-remove">
+									<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+										Remove
+									</button>
+								</span>
+							</td>
+
+
+
+						</tr>
+
+
+						@foreach (var Col in Model.ListOfColumns)
+						{
+							<tr>
+								<td class="pt-3-half" contenteditable="true">@Col.ColumName</td>
+								<td class="pt-3-half" contenteditable="true">M3</td>
+								<td class="pt-3-half dir1" contenteditable="true"></td>
+								<td class="pt-3-half dir2" contenteditable="true"></td>
+								<td class="result colv1 totaldir"></td>
+								<td id="v1" class="value1" contenteditable="true">
+
+									@Math.Round((Col.ColumVolum / 1000000000), 2)
+								</td>
+								<td class="value2" contenteditable="true"></td>
+
+								<td class="pt-3-half">
+									<span class="table-up">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+									</span>
+									<span class="table-down">
+										<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+									</span>
+								</td>
+								<td>
+									<span class="table-remove">
+										<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+											Remove
+										</button>
+									</span>
+								</td>
+
+							</tr>
+						}
+
+
+
+					</tbody>
+
+				</table>
+
+			</form>
+		</div>
+
+	</div>
+
+
+	<script>
+
+		$(function () {
+
+			$('#b1').click(function () {
+				var Totalslab = 0;
+				var Totalbeam = 0;
+				var Totalwall = 0;
+				var Totalcol = 0;
+				var Totalcost = 0;
+				$('#table tr').each(function (i) {
+					var sum = parseFloat($(this).find('.dir1').text()) + parseFloat($(this).find('.dir2').text());
+					$(this).find('.totaldir').text(sum.toFixed(2));
+					Totalslab += (+$(this).find('.slabv1').text());
+					$('#table tr ').find('.slabv2').text(Totalslab.toFixed(2));
+
+					Totalbeam += (+$(this).find('.beamv1').text());
+					$('#table tr ').find('.beamv2').text(Totalbeam.toFixed(2));
+
+					Totalwall += (+$(this).find('.wallv1').text());
+					$('#table tr ').find('.wallv2').text(Totalwall.toFixed(2));
+
+					Totalcol += (+$(this).find('.colv1').text());
+					$('#table tr ').find('.colv2').text(Totalcol.toFixed(2));
+
+					Totalcost += (+$(this).find('.result').text());
+					$('#table tr ').find('#totalcost').text(Totalcost.toFixed(2));
+
+					var unitcost = parseFloat($(this).find('.result').text()) / parseFloat($(this).find('.value1').text());
+					$(this).find('.value2').text(unitcost.toFixed(2));
+
+
+				});
+				var unpriceslab = $('#table tr ').find('.slabv2').text() / $('#table tr ').find('.quant').val();
+
+				$('#table tr ').find('.unprice').val(unpriceslab.toFixed(2));
+
+				var unpricesbeam = $('#table tr ').find('.beamv2').text() / $('#table tr ').find('.quant1').val();
+
+				$('#table tr ').find('.unprice1').val(unpricesbeam.toFixed(2));
+
+				var unpricewall = $('#table tr ').find('.wallv2').text() / $('#table tr ').find('.quant2').val();
+
+				$('#table tr ').find('.unprice2').val(unpricewall.toFixed(2));
+
+
+				var unpricecol = $('#table tr ').find('.colv2').text() / $('#table tr ').find('.quant3').val();
+
+				$('#table tr ').find('.unprice3').val(unpricecol.toFixed(2));
+
+			})
+		});
+
+
+
+
+
+
+
+	</script>
+
+	<script>
+		const $tableID = $('#table'); const $BTN = $('#export-btn'); const $EXPORT = $('#export');
+		const newTr = `
+<tr class="hide">
+
+
+												<td class="pt-3-half" contenteditable="true"></td>
+													<td class="pt-3-half" contenteditable="true">M3</td>
+													<td class="value2" contenteditable="true">12</td>
+															<td id="v1" class="value1" contenteditable="true">
+															<td class="result wallv1" contenteditable="true"></td>
+
+														  <td class="pt-3-half">
+															<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+															<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+														  </td>
+														  <td>
+															<span class="table-remove"><button
+																type="button"
+																class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+																Remove
+															  </button></span>
+														  </td>
+</tr>
+`;
+
+		$('.table-add').on('click', 'i', () => {
+			const $clone = $tableID.find('tbodytr').last().clone(true).removeClass('hide table-line'); if ($tableID.find('tbody tr').length >= 0) {
+				$('tbody').append(newTr); $tableID.find('table').append($clone);
+			}
+		});
+		$tableID.on('click', '.table-remove', function () { $(this).parents('tr').detach(); });
+		$tableID.on('click', '.table-up', function () { const $row = $(this).parents('tr'); if ($row.index() === 0) { return; } $row.prev().before($row.get(0)); });
+		$tableID.on('click', '.table-down', function () { const $row = $(this).parents('tr'); $row.next().after($row.get(0)); }); // A few jQuery helpers for exporting only jQuery.fn.pop = [].pop;
+		jQuery.fn.shift = [].shift;
+		$BTN.on('click', () => {
+			const $rows = $tableID.find('tr:not(:hidden)'); const headers = []; const data = []; // Get the headers(add special header logic here)
+			$($rows.shift()).find('th:not(:empty)').each(function () { headers.push($(this).text().toLowerCase()); }); // Turn all existing rows into a loopablearray
+			$rows.each(function () {
+				const $td = $(this).find('td'); const h = {}; // Use the headers from earlier to name our hash keys headers.
+				forEach((header, i) => {
+					h[header] = $td.eq(i).text();
+				});
+				data.push(h);
+			}); // Output the result
+			$EXPORT.text(JSON.stringify(data));
+		});
+	</script>
+
+
+
+	<script>
+		function createPDF() {
+			var sTable = document.getElementById('table').innerHTML;
+
+			var style = "<style>";
+			style = style + "table {width: 100%;font: 17px Calibri;}";
+			style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+			style = style + "padding: 2px 3px;text-align: center;}";
+			style = style + "</style>";
+
+			// CREATE A WINDOW OBJECT.
+			var win = window.open('', '', 'height=700,width=700');
+
+			win.document.write('<html><head>');
+			win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+			win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+			win.document.write('</head>');
+			win.document.write('<body>');
+			win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+			win.document.write('</body></html>');
+
+			win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+			win.print();    // PRINT THE CONTENTS.
+		}
+	</script>
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@page
+	@model PsoftApp.Pages.WebsitePages.CostEstimationModel
+	@{
+	}
+	<!DOCTYPE html>
+
+	<html>
+
+
+
+	<head>
+
+
+
+		<script>
+			function calcule2() {
+				var i = 0; for (i = 0; i <= 11; i++) { calcule(); }
+			}
+			function calcule() {
+				Excel2Html.F3.value = parseFloat(Excel2Html.D3.value) / parseFloat(Excel2Html.E3.value);
+				Excel2Html.G3.value = parseFloat(Excel2Html.F3.value) * parseFloat(Excel2Html.R3.value);
+				Excel2Html.L3.value = parseFloat(Excel2Html.K3.value) * parseFloat(Excel2Html.R3.value);
+				Excel2Html.Q3.value = parseFloat(Excel2Html.N3.value) * parseFloat(Excel2Html.P3.value);
+				Excel2Html.S3.value = parseFloat(Excel2Html.Q3.value) + parseFloat(Excel2Html.L3.value) + parseFloat(Excel2Html.G3.value);
+				Excel2Html.T3.value = parseFloat(Excel2Html.S3.value) / parseFloat(Excel2Html.Q3.value);
+			}
+		</script>
+
+		<style>
+					/*	table {
+						table-layout: fixed;
+					}
+
+
+
+					td {
+						overflow: hidden;
+						text-overflow: ellipsis;
+						word-wrap: break-word;
+					}
+			*/
+					table {
+						overflow-y: scroll;
+						height: 400px;
+						display: block;
+					}
+
+
+					td[colspan="5"] {
+						text-align: center;
+					}
+		</style>
+	</head>
+
+
+
+	<body>
+
+		<form name="Excel2Html">
+			<table class="table-bordered" border="1" id="tab">
+				<tr>
+					<td>item</td>
+					<td colspan="5">  Man   &nbsp;  power</td>
+					<td colspan="5">Machine</td>
+					<td colspan="5">Material </td>
+					<td>Quantity</td>
+					<td>Total Cost</td>
+					<td>Cost Per unit</td>
+
+				</tr>
+				<tr>
+					<td></td>
+					<td>Crew</td>
+					<td>Cost/day</td>
+					<td>productivity unit/day</td>
+					<td>Cost/unit</td>
+					<td>Total Cost</td>
+					<td>Equipment</td>
+					<td>productivity unit/day</td>
+					<td>unit</td>
+					<td>Cost/unit</td>
+					<td>Total Cost</td>
+					<td>Item</td>
+					<td>Amount</td>
+					<td>Unit</td>
+					<td>Cost/Unit</td>
+					<td>Total Cost</td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+				</tr>
+				<tr>
+					<td><input type="text"></td>
+					<td><input type="text"></td>
+					<td><input type="text" onchange="calcule2()" name="D3" size="8" text-align:center;></td>
+					<td><input type="text" onchange="calcule2()" name="E3" size="8" text-align:center;></td>
+					<td><input type="text" onchange="calcule2()" name="F3" disabled="disabled" style="background-color: transparent;  color:#000000; text-align:center; "></td>
+					<td><input type="text" onchange="calcule2()" name="G3" size="8" disabled="disabled" style="background-color: transparent; border:0px; height: 19.995px; width: 75.117px; text-align: left; font-size: 13px; font-family:Calibri; color:#000000; "></td>
+					<td><input type="text" value="loader"> </td>
+					<td><input type="text"></td>
+					<td><input type="text" value="m3"> </td>
+					<td><input type="text" onchange="calcule2()" name="K3" size="8" text-align:center;"></td>
+					<td><input type="text" onchange="calcule2()" name="L3" disabled="disabled" style="background-color: transparent;  color:#000000; text-align:center;"></td>
+					<td><input type="text"></td>
+					<td><input type="text" onchange="calcule2()" name="N3"></td>
+					<td><input type="text" value="m3"></td>
+					<td><input type="text" onchange="calcule2()" name="P3"></td>
+					<td><input type="text" onchange="calcule2()" name="Q3" disabled="disabled" style="background-color: transparent;  color:#000000; text-align:center; "></td>
+					<td>
+						<input type="text" onchange="calcule2()" name="R3" id="Drag">
+
+						<select multiple class="form-select" size="3" aria-label="size 3 select example" id="drag1" name="myselect[]">
+
+
+
+							<option selected>Choose & Drag</option>
+							@foreach (var Wall in Model.ListOfWalls)
+							{
+
+
+
+
+
+								<option value="@Wall.WallName|@Wall.WallVolum">@Wall.WallName</option>
+
+
+							}
+							@foreach (var Coloumn in Model.ListOfColumns)
+							{
+
+
+
+								<option value="@Coloumn.ColumName|@Coloumn.ColumVolum">@Coloumn.ColumName</option>
+
+
+
+							}
+							@foreach (var SlabElement in Model.ListOfSlabs)
+							{
+
+								<option value="@SlabElement.SlabName|@SlabElement.Slabvolume">@SlabElement.SlabName</option>
+							}
+							@foreach (var Beam in Model.ListOfBeams)
+							{
+
+								<option value="@Beam.BeamName|@Beam.BeamVolum">@Beam.BeamName</option>
+
+							}
+
+						</select>
+
+
+
+
+					</td>
+					<td><input type="text" onchange="calcule2()" name="S3" disabled="disabled" style="background-color: transparent;  color:#000000; text-align:center; "></td>
+					<td><input type="text" onchange="calcule2()" name="T3" disabled="disabled" style="background-color: transparent;  color:#000000; text-align:center; "></td>
+
+				</tr>
+			</table>
+		</form>
+
+
+		<p>
+			<input type="button" value="Create PDF"
+				   id="btPrint" onclick="createPDF()" />
+		</p>
+	</body>
+
+
+	<script>
+		function createPDF() {
+			var sTable = document.getElementById('tab').innerHTML;
+
+			var style = "<style>";
+			style = style + "table {width: 100%;font: 17px Calibri;}";
+			style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+			style = style + "padding: 2px 3px;text-align: center;}";
+			style = style + "</style>";
+
+			// CREATE A WINDOW OBJECT.
+			var win = window.open('', '', 'height=700,width=700');
+
+			win.document.write('<html><head>');
+			win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+			win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+			win.document.write('</head>');
+			win.document.write('<body>');
+			win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+			win.document.write('</body></html>');
+
+			win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+			win.print();    // PRINT THE CONTENTS.
+		}
+	</script>
+	</html>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+

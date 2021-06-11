@@ -1,0 +1,24 @@
+F:\ITI\gradution project\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Data.deps.json
+F:\ITI\gradution project\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\ITI\gradution project\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\ITI\gradution project\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+F:\ITI\gradution project\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.csprojAssemblyReference.cache
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.AssemblyInfoInputs.cache
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.AssemblyInfo.cs
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.csproj.CoreCompileInputs.cache
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.csproj.CopyComplete
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\ITI\gradution project\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\PSOFT\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Data.deps.json
+F:\PSOFT\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\PSOFT\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Data.pdb
+F:\PSOFT\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+F:\PSOFT\Psoft\Psoft.Data\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.csprojAssemblyReference.cache
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.AssemblyInfoInputs.cache
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.AssemblyInfo.cs
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.csproj.CoreCompileInputs.cache
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.csproj.CopyComplete
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.dll
+F:\PSOFT\Psoft\Psoft.Data\obj\Debug\netcoreapp3.1\Psoft.Data.pdb

@@ -1,0 +1,37 @@
+﻿@page
+@model Psoft.Pages.EditPlanningModel
+
+
+<form method="post">
+
+    <table>
+        <tr>
+            <td>Element Name</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td>Percentage Of Completion</td>
+        </tr>
+        @foreach (var Col in Model.ListOfColumns)
+        {
+            @:<tr><td>@Col.ColumName</td> <td><input type="date" /></td> <td><input type="date" /></td> <td><input type="number"></td></tr>
+        }
+
+        @foreach (var Beam in Model.ListOfBeams)
+        {
+            @:<tr><td>@Beam.BeamName</td> <td><input type="date" /></td> <td><input type="date" /></td> <td><input type="number"></td></tr>
+        }
+
+        @foreach (var Slab in Model.ListOfSlabs)
+        {
+            @:<tr><td>@Slab.SlabName</td> <td><input type="date" /></td> <td><input type="date" /></td> <td><input type="number"></td></tr>
+        }
+
+        @foreach (var wall in Model.ListOfColumns)
+        {
+            @:<tr><td>@wall.ColumName</td> <td><input type="date" /></td> <td><input type="date" /></td> <td><input type="number"></td></tr>
+        }
+
+    <button><a asp-page="./Planning">Confirm</a></button>
+    </table>
+
+</form>

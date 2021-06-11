@@ -1,0 +1,401 @@
+﻿@page
+@model Psoft.Pages.WebsitePages.BOQModel
+@{
+
+}
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+<script>
+	tr { display: block; float: left; }
+	th, td { display: block; }</script>
+<!-- Editable table -->
+<div class="card">
+
+
+	<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+        <i class="fas fa-file-alt"></i>Bill of Quantity
+	</h3>
+	<div class="card-body">
+		<div class="table-editable">
+			<span class="table-add float-right mb-3 mr-2">
+				<a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+			</span>
+			<table class="table table-bordered table-responsive-md table-striped text-center" id="table">
+
+
+				<thead>
+					<a id="b1" class="btn btn-outline-primary">Calculate Total Cost</a>
+					<a class="btn btn-outline-primary" onclick="export2csv()">Export to Excel</a>
+
+
+					<a class="btn btn-outline-primary" asp-page="Pdfpage">Print/Pdf</a>
+
+					<tr>
+						<th class="text-center">Item Description</th>
+						<th class="text-center">Unit</th>
+						<th class="text-center">Unit Cost</th>
+						<th class="text-center">Quantity</th>
+						<th class="text-center">Total Cost</th>
+						<th class="text-center">Sort</th>
+						<th class="text-center">Remove</th>
+					</tr>
+				</thead>
+				<tbody>
+
+
+					@foreach (var item in Model.ItemsList.BOQs)
+					{
+
+
+						<tr>
+
+							<th class="pt-3-half" contenteditable="true">@item.Item_Description</th>
+
+							<th>@item.Unit</th>
+							<th style="white-space: nowrap;" class="value2">  @item.Unit_Price </th>
+							<th class="text-center value1">@item.Quantity</th>
+							<td class="fullresult"></td>
+
+							<td class="pt-3-half">
+								<span class="table-up">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+								</span>
+								<span class="table-down">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+								</span>
+							</td>
+							<td>
+								<span class="table-remove">
+									<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+										Remove
+									</button>
+								</span>
+							</td>
+						</tr>
+						<!-- This is our clonable table line -->
+
+
+					}
+
+				</tbody>
+
+				<tfoot>
+
+					<tr>
+
+						<th class="text-center" colspan="5">Total Cost</th>
+						<th class="text-center" colspan="2" id="totalcost"></th>
+					</tr>
+
+
+				</tfoot>
+			</table>
+		</div>
+
+	</div>
+
+
+	<script>
+
+
+		$(function () {
+
+			$('#b1').click(function () {
+				var Totalslab = 0;
+				var Totalbeam = 0;
+				var Totalwall = 0;
+				var Totalcol = 0;
+				var Totalcost = 0;
+				$('#table tr').each(function (i) {
+					var sum = parseFloat($(this).find('.value2').text()) * parseFloat($(this).find('.value1').text());
+					$(this).find('.fullresult').text(sum.toFixed(2));
+
+
+					Totalcost += (+$(this).find('.fullresult').text());
+					$('#table tr ').find('#totalcost').text(Totalcost.toFixed(2));
+
+				});
+
+			})
+		});
+
+
+
+
+
+
+
+	</script>
+
+	<script>
+		const $tableID = $('#table'); const $BTN = $('#export-btn'); const $EXPORT = $('#export');
+		const newTr = `
+<tr class="hide">
+
+
+										<td class="pt-3-half" contenteditable="true"></td>
+											<td class="pt-3-half" contenteditable="true">M3</td>
+											<td class="value2" contenteditable="true">12</td>
+													<td id="v1" class="value1" contenteditable="true">
+													<td class="result wallv1" contenteditable="true"></td>
+
+												  <td class="pt-3-half">
+													<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+													<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+												  </td>
+												  <td>
+													<span class="table-remove"><button
+														type="button"
+														class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+														Remove
+													  </button></span>
+												  </td>
+</tr>
+`;
+
+		$('.table-add').on('click', 'i', () => {
+			const $clone = $tableID.find('tbodytr').last().clone(true).removeClass('hide table-line'); if ($tableID.find('tbody tr').length >= 0) {
+				$('tbody').append(newTr); $tableID.find('table').append($clone);
+			}
+		});
+		$tableID.on('click', '.table-remove', function () { $(this).parents('tr').detach(); });
+		$tableID.on('click', '.table-up', function () { const $row = $(this).parents('tr'); if ($row.index() === 0) { return; } $row.prev().before($row.get(0)); });
+		$tableID.on('click', '.table-down', function () { const $row = $(this).parents('tr'); $row.next().after($row.get(0)); }); // A few jQuery helpers for exporting only jQuery.fn.pop = [].pop;
+		jQuery.fn.shift = [].shift;
+		$BTN.on('click', () => {
+			const $rows = $tableID.find('tr:not(:hidden)'); const headers = []; const data = []; // Get the headers(add special header logic here)
+			$($rows.shift()).find('th:not(:empty)').each(function () { headers.push($(this).text().toLowerCase()); }); // Turn all existing rows into a loopablearray
+			$rows.each(function () {
+				const $td = $(this).find('td'); const h = {}; // Use the headers from earlier to name our hash keys headers.
+				forEach((header, i) => {
+					h[header] = $td.eq(i).text();
+				});
+				data.push(h);
+			}); // Output the result
+			$EXPORT.text(JSON.stringify(data));
+		});
+	</script>
+
+
+
+	<script>
+		function createPDF() {
+			var sTable = document.getElementById('table').innerHTML;
+
+			var style = "<style>";
+			style = style + "table {width: 100%;font: 17px Calibri;}";
+			style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+			style = style + "padding: 2px 3px;text-align: center;}";
+			style = style + "</style>";
+
+			// CREATE A WINDOW OBJECT.
+			var win = window.open('', '', 'height=700,width=700');
+
+			win.document.write('<html><head>');
+			win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+			win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+			win.document.write('</head>');
+			win.document.write('<body>');
+			win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+			win.document.write('</body></html>');
+
+			win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+			win.print();    // PRINT THE CONTENTS.
+		}
+	</script>
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+@*@page
+	@model PsoftApp.Pages.WebsitePages.BOQModel
+	@{
+	}
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+
+	<head>
+		<h1><strong>BOQ</strong></h1>
+
+	</head>
+
+	<body>
+
+
+
+
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+
+		<form id="form1" runat="server">
+			<div>
+				<table class="table-bordered">
+					<thead>
+
+
+
+						<a asp-page="AddEditBOQItems" asp-route-ItemId="" class="btn btn-outline-primary"> Add New Item</a>
+
+
+						<a id="b1" class="btn btn-outline-primary">Calculate Total Cost</a>
+
+
+
+						<a asp-page="ImportExport" asp-route-ItemId="" class="btn btn-outline-primary"> Import </a>
+
+						<button class="btn btn-outline-primary">
+							<a id="downloadLink" onclick="exportF(this)">Export </a>
+						</button>
+
+					</thead>
+
+
+					<tr>
+						<td>Item Descreption</td>
+						<td>Unit</td>
+						<td>Unit Price</td>
+						<td>.   Quantiity</td>
+						<td>Total Cost</td>
+						<td>Edit</td>
+						<td>Delete</td>
+					</tr>
+					@foreach (var Item in Model.ItemsList.BOQs)
+					{
+						<tr>
+
+							<td>@Item.Item_Description</td>
+							<td>@Item.Unit</td>
+
+							<td class="value2">@Item.Unit_Price</td>
+
+							<td>
+								<input id="v1" class="value1" type="text" value="slab" />
+								<table><tr><td>12</td></tr><tr><td>25</td></tr></table>
+
+
+
+							</td>
+							<td class="result"></td>
+
+
+							<td>
+								<a asp-page="AddEditBOQItems" asp-route-ItemId="@Item.ID" class="fas fa-edit"></a>
+							</td>
+
+							<td>
+								<a asp-page="DeleteItemBOQ" asp-route-ItemId="@Item.ID" class="fas fa-trash-alt"></a>
+							</td>
+
+
+						</tr>
+
+
+
+
+					}
+				</table>
+			</div>
+		</form>
+
+
+		<div>
+			<div>
+
+				<div class="draggable">
+					<input type="text" id="Drag" />
+				</div>
+
+
+				<select multiple class="form-select" size="3" aria-label="size 3 select example" id="drag1" name="myselect[]">
+
+
+
+					<option selected>Choose & Drag</option>
+					@foreach (var Wall in Model.ListOfWalls)
+					{
+
+
+
+
+
+						<option value="@Wall.WallName|@Wall.WallVolum">@Wall.WallName</option>
+
+
+					}
+					@foreach (var Coloumn in Model.ListOfColumns)
+					{
+
+
+
+						<option value="@Coloumn.ColumName|@Coloumn.ColumVolum">@Coloumn.ColumName</option>
+
+
+
+					}
+					@foreach (var SlabElement in Model.ListOfSlabs)
+					{
+
+						<option value="@SlabElement.SlabName|@SlabElement.Slabvolume">@SlabElement.SlabName</option>
+					}
+					@foreach (var Beam in Model.ListOfBeams)
+					{
+
+						<option value="@Beam.BeamName|@Beam.BeamVolum">@Beam.BeamName</option>
+
+					}
+
+				</select>
+
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+		<script>
+
+
+			$(function () {
+				$('#b1').click(function () {
+					$('.table1 tr').each(function (i) {
+						var sum = parseFloat($(this).find('.value2').text()) * parseFloat($(this).find('.value1').val());
+						$(this).find('.result').text(sum);
+					});
+				});
+			});
+
+
+		</script>
+
+
+	</body>
+	</html>*@
+
+
+
