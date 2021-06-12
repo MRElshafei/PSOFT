@@ -375,19 +375,24 @@
 
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
-
-
-
 
                             var startday = Math.abs(parseInt(PhaseOne[i].start.substring(PhaseOne[i].start.length - 2, PhaseOne[i].start.length)));
                             var startmonth = parseInt(PhaseOne[i].start.substring(5, 7));
 
-                            d = (numberOfDays + startday);
-                            m = (numberOfMonthes + startmonth);
 
-                            S = `2020-${m}-${d}`;
+                            var d = (numberOfDays + startday);
+                            var m = (numberOfMonthes + startmonth);
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                S = `2020-${m}-${d}`;
+                            } else {
+                                S = `2020-${m}-${d}`;
+                            }
+
+
                         }
                     }
 
@@ -438,7 +443,7 @@
 
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
 
 
@@ -448,10 +453,18 @@
                             var startmonth = parseInt(PhaseTwo[i].start.substring(5, 7));
                             //console.log(`startmonth = ${startmonth}`);
 
-                            d = (numberOfDays + startday);
+                            var d = (numberOfDays + startday);
                             //console.log(`Day Number is = ${d}`);
-                            m = (numberOfMonthes + startmonth);
+                            var m = (numberOfMonthes + startmonth);
                             //console.log(`Month Number is = ${m}`);
+
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                S = `2020-${m}-${d}`;
+                            } else {
+                                S = `2020-${m}-${d}`;
+                            }
 
                             S = `2020-${m}-${d}`;
                         }
@@ -480,7 +493,7 @@
 
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
 
 
@@ -495,10 +508,17 @@
                             var startmonth = parseInt(startDateOfTheTask.substring(5, 7));
                             console.log(`startmonth = ${startmonth}`);
 
-                            d = (numberOfDays + startday);
-                            m = (numberOfMonthes + startmonth);
+                            var d = (numberOfDays + startday);
+                            var m = (numberOfMonthes + startmonth);
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                E = `2020-${m}-${d}`;
+                            } else {
+                                E = `2020-${m}-${d}`;
+                            }
 
-                            E = `2020-${m}-${d}`;
+
                         }
                     }
                 }
@@ -512,7 +532,7 @@
 
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
 
                             var startday = Math.abs(parseInt(startDateOfTheTask.substring(startDateOfTheTask.length - 2, startDateOfTheTask.length)));
@@ -525,7 +545,15 @@
                             m = (numberOfMonthes + startmonth);
                             //console.log(`numberOfMonthes is ${numberOfMonthes}`);
 
-                            E = `2020-${m}-${d}`;
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                E = `2020-${m}-${d}`;
+                            } else {
+                                E = `2020-${m}-${d}`;
+                            }
+
+
                         }
                     }
                 }
