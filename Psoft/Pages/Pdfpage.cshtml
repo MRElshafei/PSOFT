@@ -158,22 +158,20 @@
 		}
 
 	@@media print {
-		.invoice
+		.invoice {
+			font-size: 11px !important;
+			overflow: hidden !important
+		}
 
-	{
-		font-size: 11px !important;
-		overflow: hidden !important
-	}
+			.invoice footer {
+				position: absolute;
+				bottom: 10px;
+				page-break-after: always
+			}
 
-	.invoice footer {
-		position: absolute;
-		bottom: 10px;
-		page-break-after: always
-	}
-
-	.invoice > div:last-child {
-		page-break-before: always
-	}
+			.invoice > div:last-child {
+				page-break-before: always
+			}
 	}
 </style>
 
@@ -187,8 +185,8 @@
 	<div class="toolbar hidden-print">
 		<div class="text-right">
 			<button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-					
-	
+
+
 			<a class="btn btn-outline-primary" id="bot" asp-page="Pdfpage" asp-route-id="1">PDF </a>
 
 		</div>
@@ -200,36 +198,36 @@
 				<div class="row">
 					<div class="col">
 						<a target="_blank" href="https://lobianijs.com">
-							<img src="/imgs/index.jpg" class="img-thumbnail" data-holder-rendered="true"   alt="Cinque Terre" style="width:120px;height:120px;"/>
+							<img src="/imgs/index.jpg" class="img-thumbnail" data-holder-rendered="true" alt="Cinque Terre" style="width:120px;height:120px;" />
 						</a>
 					</div>
 					<div class="col company-details">
 						<h2 class="name">
-							<a target="_blank" href="http://www.iti.gov.eg/">
+							<a contenteditable="true" target="_blank" href="http://www.iti.gov.eg/">
 								Owner : ITI Intake 41
 							</a>
 						</h2>
-						<div>Smart Village,Giza,Egypt</div>
-						<div>(123) 456-789</div>
-						<div>ITI@example.com</div>
+						<div contenteditable="true">Smart Village,Giza,Egypt</div>
+						<div contenteditable="true">(123) 456-789</div>
+						<div contenteditable="true">ITI@example.com</div>
 					</div>
 				</div>
 			</header>
 			<main>
 				<div class="row contacts">
 					<div class="col invoice-to">
-						<h1 class="invoice-id"  style="text-decoration: underline;"><a href="">Bill OF Quantity</a></h1>
-						<div class="date">Date of BOQ: 20/06/2021</div>
+						<h1 class="invoice-id" style="text-decoration-line: underline;"><a href="">BOQ:@Model.ProjectName</a></h1>
+						<div class="date" contenteditable="true">Date of BOQ: 20/06/2021</div>
 					</div>
 					<div class="col invoice-details">
-					
+
 						<div class="text-gray-light">Consultant:</div>
-						<h2 class="to">Civil Engineering informatics</h2>
-						<div class="address">Smart Village,Giza,Egypt</div>
-						<div class="email"><a href="mailto:john@example.com">Cei@example.com</a></div>
+						<h2 class="to" contenteditable="true">Civil Engineering informatics</h2>
+						<div class="address" contenteditable="true">Smart Village,Giza,Egypt</div>
+						<div class="email" contenteditable="true"><a href="mailto:john@example.com">Cei@example.com</a></div>
 					</div>
 				</div>
-				<table class="table table-bordered"  cellspacing="0" cellpadding="0">
+				<table class="table table-bordered" cellspacing="0" cellpadding="0">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -259,7 +257,7 @@
 								@{var calc = double.Parse(item.Unit_Price) * @item.Quantity;}
 								<td class="total">  @Math.Round(calc, 2)</td>
 							</tr>
-							{Totalco = Totalco + calc;}
+							{ Totalco = Totalco + calc; }
 							<span style="display:none">@{i = i + 1;}</span>
 						}
 					</tbody>
@@ -269,20 +267,20 @@
 						<tr>
 
 							<th class="text-center" colspan="5">Total Cost</th>
-							<th class="text-center" colspan="2" id="totalcost">@Math.Round(Totalco,2)</th>
+							<th class="text-center" colspan="2" id="totalcost">@Math.Round(Totalco, 2)</th>
 						</tr>
 
 
 					</tfoot>
 				</table>
-				
+
 				<div class="notices">
 					<div>NOTICE:</div>
 					<div class="notice">The BOQ Created by the currency & Unit that are chosed for the Project.</div>
 				</div>
 			</main>
 			<footer>
-				Copyright for PSoft© 2021 
+				Copyright for PSoft© 2021
 			</footer>
 		</div>
 		<!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->

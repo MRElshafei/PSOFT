@@ -18,95 +18,128 @@
 <div class="card">
 
 
-	<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-		<i class="fas fa-file-alt"></i> Bill of Quantity
-	</h3>
+	<span style="display:none;">@{int i = 0;}</span>
+	<form method="post">
+		<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+			<i class="fas fa-file-alt"></i> Bill of Quantity
+		</h3>
 
-	<h6 style="color:steelblue" class="card-header text-center font-weight-bold text-uppercase py-4">
-		@Model.ProjectName
-	</h6>
-	<div class="card-body">
-		<div class="table-editable">
-			<span class="table-add float-right mb-3 mr-2">
-				<a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
-			</span>
-			<table class="table table-bordered table-responsive-md table-striped text-center" id="table">
+		<h6 style="color:steelblue" class="card-header text-center font-weight-bold text-uppercase py-4">
+			@Model.ProjectName
+		</h6>
 
 
-				<thead>
-					<a id="b1" class="btn btn-outline-primary">Calculate Total Cost</a>
-					<a class="btn btn-outline-primary" onclick="export2csv()">Export to Excel</a>
-
-					<a class="btn btn-outline-primary" asp-page="Pdfpage">Print/Pdf</a>
-
-
-
+		<div class="card-body">
+			<div class="table-editable">
+				<span class="table-add float-right mb-3 mr-2">
+					<a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
+				</span>
+				<table class="table table-bordered table-responsive-md table-striped text-center" id="table">
 
 
-
-					<tr>
-						<th class="text-center">Item Description</th>
-						<th class="text-center">Unit</th>
-						<th class="text-center">Unit Cost</th>
-						<th class="text-center">Quantity</th>
-						<th class="text-center">Total Cost</th>
-						<th class="text-center">Sort</th>
-						<th class="text-center">Remove</th>
-					</tr>
-				</thead>
-				<tbody>
+					<thead>
+						<a id="b1" class="btn btn-outline-primary">Calculate Total Cost</a>
+						&nbsp;
+						<a class="btn btn-outline-primary" onclick="export2csv()">Export to Excel</a>
+						&nbsp;
+						<a class="btn btn-outline-primary" asp-page="Pdfpage">Print/Pdf</a>
+						&nbsp;
+						<button type="submit" class="btn btn-primary" onclick="saved()">Save</button>
 
 
 
 
-					<tr>
-
-						<th class="pt-3-half" contenteditable="true"></th>
-
-						<th class="text-center" contenteditable="true"></th>
-						<th class="text-center value2" style="white-space: nowrap;" contenteditable="true"> </th>
-						<th class="text-center value1" contenteditable="true"></th>
-						<td class="fullresult"></td>
-
-						<td class="pt-3-half">
-							<span class="table-up">
-								<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
-							</span>
-							<span class="table-down">
-								<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
-							</span>
-						</td>
-						<td>
-							<span class="table-remove">
-								<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
-									Remove
-								</button>
-							</span>
-						</td>
-					</tr>
-					<!-- This is our clonable table line -->
+						<tr>
+							<th class="text-center">Item Description</th>
+							<th class="text-center">Unit</th>
+							<th class="text-center">Unit Cost</th>
+							<th class="text-center">Quantity</th>
+							<th class="text-center">Total Cost</th>
+							<th class="text-center">Sort</th>
+							<th class="text-center">Remove</th>
+						</tr>
+					</thead>
+					<tbody>
 
 
 
-				</tbody>
 
-				<tfoot>
+						<tr>
+							<th>
+								<label class="form-check-label ">
 
-					<tr>
+									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" class="text-center" style="background-color:transparent;">
+								</label>
+							</th>
 
-						<th class="text-center" colspan="5">Total Cost</th>
-						<th class="text-center" colspan="2" id="totalcost"></th>
-					</tr>
+							<th>
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" style="background-color:transparent;">
+								</label>
+							</th>
+
+							<th>
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit_Price" value="0" class="text-center  value2" style="background-color:transparent;">
+								</label>
+							</th>
+
+							<th>
+								<label class="form-check-label ">
+
+									<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Quantity" value="0" class="text-center value1" style="background-color:transparent;">
+								</label>
+							</th>
+
+							<td class="fullresult"></td>
+
+							<td class="pt-3-half">
+								<span class="table-up">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+								</span>
+								<span class="table-down">
+									<a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+								</span>
+							</td>
+							<td>
+								<span class="table-remove">
+									<button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+										Remove
+									</button>
+								</span>
+							</td>
+						</tr>
+						<!-- This is our clonable table line -->
 
 
-				</tfoot>
-			</table>
+					</tbody>
+
+					<tfoot>
+
+						<tr>
+
+							<th class="text-center" colspan="5">Total Cost</th>
+							<th class="text-center" colspan="2" id="totalcost"></th>
+						</tr>
+
+
+					</tfoot>
+				</table>
+
+			</div>
+
+
+
 		</div>
+	</form>
 
-
-
-	</div>
-
+	<script>
+		function saved() {
+			alert("data saved successfully");
+		}
+	</script>
 
 	<script>
 
@@ -120,7 +153,7 @@
 				var Totalcol = 0;
 				var Totalcost = 0;
 				$('#table tr').each(function (i) {
-					var sum = parseFloat($(this).find('.value2').text()) * parseFloat($(this).find('.value1').text());
+					var sum = parseFloat($(this).find('.value2').val()) * parseFloat($(this).find('.value1').val());
 					$(this).find('.fullresult').text(sum.toFixed(2));
 
 
@@ -145,13 +178,34 @@
 		const newTr = `
 <tr class="hide">
 
+									<th>
+										<label class="form-check-label ">
 
+											<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" class="text-center" style="background-color:transparent;">
+										</label>
+									</th>
 
-									<th class="pt-3-half" contenteditable="true"></th>
+									<th>
+										<label class="form-check-label ">
 
-									<th class="text-center" contenteditable="true"></th>
-									<th class="text-center value2" style="white-space: nowrap;"  contenteditable="true"> </th>
-									<th class="text-center value1" contenteditable="true"></th>
+											<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" style="background-color:transparent;">
+										</label>
+									</th>
+
+									<th>
+										<label class="form-check-label ">
+
+											<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit_Price" value="0" class="text-center  value2" style="background-color:transparent;">
+										</label>
+									</th>
+
+									<th>
+										<label class="form-check-label ">
+
+											<input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Quantity" value="0" class="text-center value1" style="background-color:transparent;">
+										</label>
+									</th>
+
 									<td class="fullresult"></td>
 
 									<td class="pt-3-half">
@@ -169,6 +223,9 @@
 											</button>
 										</span>
 									</td>
+
+
+
 
 `;
 

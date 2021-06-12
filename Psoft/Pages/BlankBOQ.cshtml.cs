@@ -54,6 +54,19 @@ namespace Psoft.Pages
 
 
         }
+
+        public IActionResult OnPost()
+        {
+            foreach (var item in BOQDTOList.BOQs)
+            {
+                IManageBOQ.AddItem(item);
+
+            }
+
+            return RedirectToPage("./GotoBOQ");
+        }
+
+
     }
 }
 

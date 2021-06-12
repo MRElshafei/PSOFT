@@ -20,6 +20,8 @@
 
 
 	<span style="display:none;">@{int i = 0;}</span>
+
+
 	<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
 		Cost Estimation
 	</h3>
@@ -40,10 +42,12 @@
 
 					<thead>
 						<a id="b1" class="btn btn-outline-primary">Calculate Total Cost</a>
+						&nbsp;
 						<a class="btn btn-outline-primary" onclick="export2csv()">Export to Excel</a>
-
+						&nbsp;
 						<a class="btn btn-outline-primary" id="btPrint" onclick="createPDF()">Create PDF</a>
-						<button type="submit" class="btn btn-primary">Save</button>
+						&nbsp;
+						<button type="submit" class="btn btn-primary" onclick="saved()">Save</button>
 						<tr>
 							<th class="text-center">Item Description</th>
 							<th class="text-center">Unit</th>
@@ -261,7 +265,7 @@
 						<tr>
 							<th class="pt-3-half">
 								<label class="form-check-label ">
-									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Wall" style="background-color:transparent;">
+									<input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Architecture Element:Walls" style="background-color:transparent;">
 								</label>
 
 							</th>
@@ -549,23 +553,23 @@
 <tr class="hide">
 
 
-														<td class="pt-3-half" contenteditable="true"></td>
-															<td class="pt-3-half" contenteditable="true">M3</td>
-															<td class="value2" contenteditable="true">12</td>
-																	<td id="v1" class="value1" contenteditable="true">
-																	<td class="result wallv1" contenteditable="true"></td>
+																<td class="pt-3-half" contenteditable="true"></td>
+																	<td class="pt-3-half" contenteditable="true">M3</td>
+																	<td class="value2" contenteditable="true">12</td>
+																			<td id="v1" class="value1" contenteditable="true">
+																			<td class="result wallv1" contenteditable="true"></td>
 
-																  <td class="pt-3-half">
-																	<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-																	<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-																  </td>
-																  <td>
-																	<span class="table-remove"><button
-																		type="button"
-																		class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
-																		Remove
-																	  </button></span>
-																  </td>
+																		  <td class="pt-3-half">
+																			<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+																			<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+																		  </td>
+																		  <td>
+																			<span class="table-remove"><button
+																				type="button"
+																				class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+																				Remove
+																			  </button></span>
+																		  </td>
 </tr>
 `;
 
@@ -622,6 +626,13 @@
 	</script>
 
 
+
+
+	<script>
+		function saved() {
+			alert("data saved successfully");
+		}
+	</script>
 
 
 
