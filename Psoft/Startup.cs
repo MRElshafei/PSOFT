@@ -42,6 +42,10 @@ namespace Psoft
             services.AddScoped<IManageProjects, ManageProjects>();
             services.AddAuthorization();
             services.AddRazorPages();
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Home", "");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

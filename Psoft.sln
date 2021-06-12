@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Psoft", "Psoft\Psoft.csproj", "{63A8BCEE-17C1-458E-B430-F12C84B82E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Psoft.Application", "Psoft.Application\Psoft.Application.csproj", "{76724E97-C51F-4666-8AC5-50E94796F2EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Psoft.Application", "Psoft.Application\Psoft.Application.csproj", "{76724E97-C51F-4666-8AC5-50E94796F2EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Psoft.Data", "Psoft.Data\Psoft.Data.csproj", "{9755749F-FF22-4BC0-9597-9F7979268C1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Psoft.Data", "Psoft.Data\Psoft.Data.csproj", "{9755749F-FF22-4BC0-9597-9F7979268C1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Psoft.Domain", "Psoft.Domain\Psoft.Domain.csproj", "{53B1FBC6-3230-4D3A-A8A3-1B7E8517BCD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Psoft.Domain", "Psoft.Domain\Psoft.Domain.csproj", "{53B1FBC6-3230-4D3A-A8A3-1B7E8517BCD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

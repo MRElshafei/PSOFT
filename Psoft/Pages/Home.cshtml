@@ -1,105 +1,240 @@
 ﻿@page
 @model Psoft.Pages.HomeModel
 @{
+    Layout = null;
 }
-
 <!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Document Title
+    =============================================
+    -->
+    <!--
 
-<html lang="en">
+    Stylesheets
+    =============================================
 
-<body>
-	<!-- Content Header (Page header) -->
-	<section class="content-header">
-		<div class="container-fluid">
-			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1>Timeline</h1>
-				</div>
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Timeline</li>
-					</ol>
-				</div>
-			</div>
-		</div><!-- /.container-fluid -->
-	</section>
+    -->
+    <!-- Default stylesheets-->
+    <link href="~/assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-	<!-- Main content -->
-	<section class="content">
-		<div class="container-fluid">
+    <link href="~/assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="~/assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="~/assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="~/assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="~/assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="~/assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="~/assets/css/colors/default.css" rel="stylesheet">
+</head>
 
-			<!-- Timelime example  -->
-			<div class="row">
-				<div class="col-md-12">
-					<!-- The time line -->
-					<div class="timeline">
-						<!-- timeline time label -->
-						<div class="time-label">
-							<span class="bg-red">10 Feb. 2014</span>
-						</div>
-						<!-- /.timeline-label -->
-						<!-- timeline item -->
-						<div>
-							<i class="fas fa-envelope bg-blue"></i>
-							<div class="timeline-item">
-								<span class="time"><i class="fas fa-clock"></i> 12:05</span>
-								<h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
 
-								<div class="timeline-body">
-									Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-									weebly ning heekya handango imeem plugg dopplr jibjab, movity
-									jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-									quora plaxo ideeli hulu weebly balihoo...
-								</div>
-								<div class="timeline-footer">
-									<a class="btn btn-primary btn-sm">Read more</a>
-									<a class="btn btn-danger btn-sm">Delete</a>
-								</div>
-							</div>
-						</div>
-						<!-- END timeline item -->
-						<!-- timeline item -->
-						
-						<!-- END timeline item -->
-						<!-- timeline item -->
-						
-						<!-- END timeline item -->
-						
-						<!-- /.timeline-label -->
-						<!-- timeline item -->
-						
-						<!-- END timeline item -->
-						<!-- timeline item -->
-						<div>
-							<i class="fas fa-video bg-maroon"></i>
 
-							<div class="timeline-item">
-								<span class="time"><i class="fas fa-clock"></i> 5 days ago</span>
 
-								<h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
 
-								<div class="timeline-body">
-									<div class="embed-responsive embed-responsive-16by9">
-										<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" allowfullscreen></iframe>
-									</div>
-								</div>
-								<div class="timeline-footer">
-									<a href="#" class="btn btn-sm bg-maroon">See comments</a>
-								</div>
-							</div>
-						</div>
-						<!-- END timeline item -->
-						<div>
-							<i class="fas fa-clock bg-gray"></i>
-						</div>
-					</div>
-				</div>
-				<!-- /.col -->
-			</div>
-		</div>
-		<!-- /.timeline -->
+        <!-- Nav Bar -->
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
 
-	</section>
+                <div class="navbar-header"> <a class="navbar-brand" href="#">  PSOFT </a> </div>
+                <div class="collapse navbar-collapse" id="custom-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class=""><a class="" asp-page="/Dashboard">Home</a></li>
+
+                        <li class=""><a class="" href="#">Log In</a></li>
+
+                        <li class=""><a class="" href="#">Regestration</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- =============================================================================== -->
+
+
+        <div class="main">
+
+            <!-- ----------------------------------------------------------------------------------------SLIDER------------------------------------------------------------ -->
+            <section class="module bg-dark-60 about-page-header" style="        background-image: url(https://image.freepik.com/free-photo/construction-site_53876-23129.jpg)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <h1 class="module-title font-alt" style="color: dimgray; font-weight: bolder;">SMART CONSTRUCTION MANAGEMENT</h1>
+                            @*<div class="module-subtitle font-serif">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</div>*@
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================================================================================================================== -->
+            <!-- ========================================================================================ABOUT US======================================================================== -->
+            <section class="module pt-0 pb-0" id="about">
+                <div class="row position-relative m-0">
+                    <div class="col-xs-12 col-md-6 side-image"><img src="~/assets/images/PSOFT.jpg" /></div>
+                    <div class="col-xs-12 col-md-6 col-md-offset-6 side-image-text">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="module-title font-alt align-left">ABOUT US</h2>
+                                <div class="module-subtitle font-serif align-left">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</div>
+                                <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                                <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- =========================================================================================================================================================================== -->
+            <!-- ========================================================================================Video======================================================================== -->
+            <section class="module bg-dark-60" data-background="assets/images/PSOFT.jpg">
+                <div class="container">
+                    <div class="row" style="text-align: center;">
+                        <div class="col-sm-12">
+                            <div class="video-box">
+                                <div class="video-box-icon" style="text-align: center;">
+                                    <video style="padding: 0px 0px 0px 0px;" controls>
+                                        <source src="~/assets/images/psoftv.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="video-title font-alt">Presentation</div>
+                                <div class="video-subtitle font-alt">Watch the video about our products</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================================================================================================================================================================================= -->
+            <!-- ========================================================================================TEAM======================================================================== -->
+            <section class="module" id="team">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <h2 class="module-title font-alt">Meet Our Team</h2>
+                            <!-- <div class="module-subtitle font-serif">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</div> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="wowfadeInUp">
+                            <div class="team-item">
+                                <div class="team-image">
+                                    <img src="~/assets/images/me.jpg" alt="Member Photo" />
+                                    <div class="team-detail">
+                                        <h5 class="font-alt">Hi all</h5>
+                                        <p class="font-serif">Happy to help you, a&amp;nbsp;iaculis diam.</p>
+                                        <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="team-descr font-alt">
+                                    <div class="team-name">Mohamed Raafat</div>
+                                    <div class="team-role">Software Developer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="wowfadeInUp">
+                            <div class="team-item">
+                                <div class="team-image">
+                                    <img src="~/assets/images/team-2.jpg" alt="Member Photo" />
+                                    <div class="team-detail">
+                                        <h5 class="font-alt">Good day</h5>
+                                        <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
+                                        <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="team-descr font-alt">
+                                    <div class="team-name">Andy River</div>
+                                    <div class="team-role">Creative director</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="wowfadeInUp">
+                            <div class="team-item">
+                                <div class="team-image">
+                                    <img src="~/assets/images/team-3.jpg" alt="Member Photo" />
+                                    <div class="team-detail">
+                                        <h5 class="font-alt">Hello</h5>
+                                        <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
+                                        <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="team-descr font-alt">
+                                    <div class="team-name">Adele Snow</div>
+                                    <div class="team-role">Account manager</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="wowfadeInUp">
+                            <div class="team-item">
+                                <div class="team-image">
+                                    <img src="~/assets/images/team-4.jpg" alt="Member Photo" />
+                                    <div class="team-detail">
+                                        <h5 class="font-alt">Yes, it's me</h5>
+                                        <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
+                                        <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="team-descr font-alt">
+                                    <div class="team-name">Dylan Woods</div>
+                                    <div class="team-role">Developer</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ========================================================================================FOOOTER======================================================================== -->
+
+            <hr class="divider-d">
+            <footer class="footer bg-dark">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="copyright font-alt">&copy; 2021&nbsp;<a href="#">PSOFT</a>, All Rights Reserved</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="footer-social-links">
+                                <a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+    <!--
+    JavaScripts
+    =============================================
+    -->
+    <script src="~/assets/lib/jquery/dist/jquery.js"></script>
+    <script src="~/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/assets/lib/wow/dist/wow.js"></script>
+    <script src="~/assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="~/assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="~/assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="~/assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="~/assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="~/assets/lib/smoothscroll.js"></script>
+    <script src="~/assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="~/assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/main.js"></script>
 </body>
 </html>
