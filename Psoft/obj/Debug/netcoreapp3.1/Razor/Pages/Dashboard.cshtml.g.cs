@@ -13,21 +13,21 @@ namespace Psoft.Pages
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "F:\PSOFT\Psoft\Psoft\Pages\_ViewImports.cshtml"
+#line 1 "F:\ITI\gradution project\Final submission\PSOFT\Psoft\Pages\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "F:\PSOFT\Psoft\Psoft\Pages\_ViewImports.cshtml"
+#line 2 "F:\ITI\gradution project\Final submission\PSOFT\Psoft\Pages\_ViewImports.cshtml"
 using Psoft;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "F:\PSOFT\Psoft\Psoft\Pages\_ViewImports.cshtml"
+#line 3 "F:\ITI\gradution project\Final submission\PSOFT\Psoft\Pages\_ViewImports.cshtml"
 using Psoft.Data;
 
 #line default
@@ -236,7 +236,7 @@ using Psoft.Data;
 							<label for=""todoCheck1""></label>
 						</div>
 						<!-- todo text -->
-						<span class=""text"">Design a nice theme</span>
+						<span class=""text"" contenteditable=""true"">Visit Site</span>
 						<!-- Emphasis label -->
 						<small class=""badge badge-danger""><i class=""far fa-clock""></i> 2 mins</small>
 						<!-- General tools such as edit or delete-->
@@ -252,12 +252,12 @@ using Psoft.Data;
 						</span>
 						<div class=""icheck-primary d-inline ml-2"">
 							<input type=""checkbox""");
-            BeginWriteAttribute("value", " value=\"", 5161, "\"", 5169, 0);
+            BeginWriteAttribute("value", " value=\"", 5175, "\"", 5183, 0);
             EndWriteAttribute();
             WriteLiteral(@" name=""todo2"" id=""todoCheck2"" checked>
 							<label for=""todoCheck2""></label>
 						</div>
-						<span class=""text"">Make the theme responsive</span>
+						<span class=""text"" contenteditable=""true"">Prepare Solution to the clash in mep works section A-A</span>
 						<small class=""badge badge-info""><i class=""far fa-clock""></i> 4 hours</small>
 						<div class=""tools"">
 							<i class=""fas fa-edit""></i>
@@ -271,12 +271,12 @@ using Psoft.Data;
 						</span>
 						<div class=""icheck-primary d-inline ml-2"">
 							<input type=""checkbox""");
-            BeginWriteAttribute("value", " value=\"", 5754, "\"", 5762, 0);
+            BeginWriteAttribute("value", " value=\"", 5820, "\"", 5828, 0);
             EndWriteAttribute();
             WriteLiteral(@" name=""todo3"" id=""todoCheck3"">
 							<label for=""todoCheck3""></label>
 						</div>
-						<span class=""text"">Let theme shine like a star</span>
+						<span class=""text"" contenteditable=""true"">Ensure The safety hazard are fixed</span>
 						<small class=""badge badge-warning""><i class=""far fa-clock""></i> 1 day</small>
 						<div class=""tools"">
 							<i class=""fas fa-edit""></i>
@@ -290,12 +290,12 @@ using Psoft.Data;
 						</span>
 						<div class=""icheck-primary d-inline ml-2"">
 							<input type=""checkbox""");
-            BeginWriteAttribute("value", " value=\"", 6342, "\"", 6350, 0);
+            BeginWriteAttribute("value", " value=\"", 6438, "\"", 6446, 0);
             EndWriteAttribute();
             WriteLiteral(@" name=""todo4"" id=""todoCheck4"">
 							<label for=""todoCheck4""></label>
 						</div>
-						<span class=""text"">Let theme shine like a star</span>
+						<span class=""text"" contenteditable=""true"">Check The slabs Quantity in Section C-C</span>
 						<small class=""badge badge-success""><i class=""far fa-clock""></i> 3 days</small>
 						<div class=""tools"">
 							<i class=""fas fa-edit""></i>
@@ -309,12 +309,12 @@ using Psoft.Data;
 						</span>
 						<div class=""icheck-primary d-inline ml-2"">
 							<input type=""checkbox""");
-            BeginWriteAttribute("value", " value=\"", 6931, "\"", 6939, 0);
+            BeginWriteAttribute("value", " value=\"", 7062, "\"", 7070, 0);
             EndWriteAttribute();
             WriteLiteral(@" name=""todo5"" id=""todoCheck5"">
 							<label for=""todoCheck5""></label>
 						</div>
-						<span class=""text"">Check your messages and notifications</span>
+						<span class=""text"" contenteditable=""true"">Check your messages and notifications</span>
 						<small class=""badge badge-primary""><i class=""far fa-clock""></i> 1 week</small>
 						<div class=""tools"">
 							<i class=""fas fa-edit""></i>
@@ -328,12 +328,12 @@ using Psoft.Data;
 						</span>
 						<div class=""icheck-primary d-inline ml-2"">
 							<input type=""checkbox""");
-            BeginWriteAttribute("value", " value=\"", 7530, "\"", 7538, 0);
+            BeginWriteAttribute("value", " value=\"", 7684, "\"", 7692, 0);
             EndWriteAttribute();
             WriteLiteral(@" name=""todo6"" id=""todoCheck6"">
 							<label for=""todoCheck6""></label>
 						</div>
-						<span class=""text"">Let theme shine like a star</span>
+						<span class=""text"" contenteditable=""true"">Update The BOQ with the new Ceramic Material that have been add</span>
 						<small class=""badge badge-secondary""><i class=""far fa-clock""></i> 1 month</small>
 						<div class=""tools"">
 							<i class=""fas fa-edit""></i>
@@ -359,11 +359,11 @@ using Psoft.Data;
 				<h3 class=""card-title"">
 					<i class=""fas fa-map-marker-alt mr-1""></i>
 				PSOFT Users
-				</h3>
+				</h");
+            WriteLiteral(@"3>
 				<!-- card tools -->
 				<div class=""card-tools"">
-");
-            WriteLiteral(@"					<button type=""button"" class=""btn btn-primary btn-sm daterange"" title=""Date range"">
+					<button type=""button"" class=""btn btn-primary btn-sm daterange"" title=""Date range"">
 						<i class=""far fa-calendar-alt""></i>
 					</button>
 					<button type=""button"" class=""btn btn-primary btn-sm"" data-card-widget=""collapse"" title=""Collapse"">
@@ -390,12 +390,26 @@ using Psoft.Data;
 					<!-- ./col -->
 					<div class=""col-4 text-center"">
 						<div id=""sparkline-3""></div>
-						<div class=""text-white"">Sales</div>
+						<div class=""text-white"">S");
+            WriteLiteral(@"ales</div>
 					</div>
 					<!-- ./col -->
 				</div>
-	");
-            WriteLiteral("\t\t\t<!-- /.row -->\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<!-- /.card -->\r\n\t\t<!-- solid sales graph -->\r\n\t\r\n\t\t<!-- /.card -->\r\n\t\t<!-- Calendar -->\r\n\t\t\r\n\t\t<!-- /.card -->\r\n\t</section>\r\n\t<!-- right col -->\r\n</div>\r\n<!-- /.row (main row) -->\r\n     ");
+				<!-- /.row -->
+			</div>
+		</div>
+		<!-- /.card -->
+		<!-- solid sales graph -->
+	
+		<!-- /.card -->
+		<!-- Calendar -->
+		
+		<!-- /.card -->
+	</section>
+	<!-- right col -->
+</div>
+<!-- /.row (main row) -->
+     ");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
