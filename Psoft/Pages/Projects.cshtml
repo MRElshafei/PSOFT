@@ -33,7 +33,7 @@
     <td class="text-center">@project.Currency</td>
     <td class="text-center"><a asp-route-projectId="@project.ID" asp-page="./EditProject"><i class="fas fa-edit"></i></a></td>
     <td class="text-center"><a asp-route-projectId="@project.ID" asp-page="./DeleteProject" onclick="return confirm('Are You sure you want to Delete Project: @project.ProjectName')"><i class="fas fa-trash-alt"></i></a></td>                                      @*Delete*@
-    <td class="text-center"><a asp-route-project="@project.ID" asp-page="./ActivatProject"><i class="btn btn-primary select"> Select</i></a></td>
+    <td class="text-center"><a asp-route-project="@project.ID" asp-page="./ActivatProject"  onclick="return confirm('You have select: @project.ProjectName ')"><i class="btn btn-primary select"> Select</i></a></td>
 </tr>
     }
 </table>

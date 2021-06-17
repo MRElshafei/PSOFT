@@ -106,7 +106,7 @@ namespace Psoft.Pages.WebsitePages
             {
                 IManageBOQ.AddItem(_BOQDTO);
             }
-            return RedirectToPage("./CostEstimation");
+            return RedirectToPage("./Dashboard");
         }
     }
 }

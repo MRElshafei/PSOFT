@@ -245,21 +245,27 @@
 						}
 						@foreach (var item in Model.ItemsList.BOQs)
 						{
+							{if (item.Quantity > 0)
+								{
 
-							<tr>
-								<td class="no" contenteditable='true'>0-@i</td>
-								<td class="text-left" contenteditable='true'>
-									@item.Item_Description
-								</td>
-								<td class="unit" contenteditable='true'> @item.Unit</td>
-								<td class="qty" contenteditable='true'>@item.Unit_Price</td>
-								<td class="qty" contenteditable='true'>@item.Quantity</td>
-								@{var calc = double.Parse(item.Unit_Price) * @item.Quantity;}
-								<td class="total">  @Math.Round(calc, 2)</td>
-							</tr>
-							{ Totalco = Totalco + calc; }
-							<span style="display:none">@{i = i + 1;}</span>
-						}
+
+									<tr>
+										<td class="no" contenteditable='true'>0-@i</td>
+										<td class="text-left" contenteditable='true'>
+											@item.Item_Description
+										</td>
+										<td class="unit" contenteditable='true'> @item.Unit</td>
+										<td class="qty" contenteditable='true'>@item.Unit_Price</td>
+										<td class="qty" contenteditable='true'>@item.Quantity</td>
+										@{var calc = double.Parse(item.Unit_Price) * @item.Quantity;}
+										<td class="total">  @Math.Round(calc, 2)</td>
+									</tr>
+											{ Totalco = Totalco + calc; }
+									<span style="display:none">@{i = i + 1;}</span>
+												}
+												else {<span style="display:none">@{i = i + 1;}</span> }
+											}
+										}
 					</tbody>
 
 					<tfoot>

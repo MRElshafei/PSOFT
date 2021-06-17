@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj": {}
+    "F:\\ITI\\gradution project\\Final submission\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj": {}
   },
   "projects": {
-    "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj": {
+    "F:\\ITI\\gradution project\\Final submission\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj",
+        "projectUniqueName": "F:\\ITI\\gradution project\\Final submission\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj",
         "projectName": "Psoft.Domain",
-        "projectPath": "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj",
-        "packagesPath": "C:\\Users\\Mohamed\\.nuget\\packages\\",
-        "outputPath": "F:\\PSOFT\\Psoft\\Psoft.Domain\\obj\\",
+        "projectPath": "F:\\ITI\\gradution project\\Final submission\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "F:\\ITI\\gradution project\\Final submission\\PSOFT\\Psoft.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
