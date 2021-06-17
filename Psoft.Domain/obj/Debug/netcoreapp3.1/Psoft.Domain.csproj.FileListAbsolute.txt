@@ -25,3 +25,12 @@ F:\ITI\gradution project\Final submission\PSOFT\Psoft.Domain\obj\Debug\netcoreap
 F:\ITI\gradution project\Final submission\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.csproj.CoreCompileInputs.cache
 F:\ITI\gradution project\Final submission\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.dll
 F:\ITI\gradution project\Final submission\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.pdb
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\bin\Debug\netcoreapp3.1\Psoft.Domain.deps.json
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\bin\Debug\netcoreapp3.1\Psoft.Domain.dll
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\bin\Debug\netcoreapp3.1\Psoft.Domain.pdb
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.csproj.AssemblyReference.cache
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.AssemblyInfoInputs.cache
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.AssemblyInfo.cs
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.csproj.CoreCompileInputs.cache
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.dll
+E:\PSOFT FINAL\PSOFT\Psoft.Domain\obj\Debug\netcoreapp3.1\Psoft.Domain.pdb
