@@ -8,6 +8,7 @@ namespace Psoft.Pages.WebsitePages
 {
     public class PlanningModel : PageModel
     {
+        public string ProjectName { get; set; }
         public List<Beam> ListOfBeams { set; get; }
         public List<Column> ListOfColumns { set; get; }
         public List<Slab> ListOfSlabs { set; get; }
@@ -22,7 +23,8 @@ namespace Psoft.Pages.WebsitePages
         }
         public IActionResult OnGet()
         {
-            string Path =manageProjects.getPathOfActivatedProject();
+            ProjectName = manageProjects.getActivatedProjectName();
+            string Path = manageProjects.getPathOfActivatedProject();
             if (Path == null)
             {
                 return RedirectToPage("./NotFound");
