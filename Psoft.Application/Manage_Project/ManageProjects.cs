@@ -52,7 +52,16 @@ namespace Psoft.Application.Manage_Projects
 
         public int ProjectCount()
         {
-           return dBContext.projects.Where(p => p.IsDeleted == false).ToList().Count();
+            var value = dBContext.projects.Where(p => p.IsDeleted == false).ToList().Count();
+
+            if (value > 0)
+            {
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public void EditProject(Projects project)
@@ -81,7 +90,14 @@ namespace Psoft.Application.Manage_Projects
 
         public string getActivatedProjectName()
         {
-            return dBContext.projects.SingleOrDefault(p=>p.IsActive==true&&p.IsDeleted==false).ProjectName;
+            if (dBContext.projects.Where(p => p.IsDeleted == false).Count() > 0)
+            {
+                return dBContext.projects.SingleOrDefault(p => p.IsActive == true && p.IsDeleted == false).ProjectName;
+            }
+            else
+            {
+                return "...";
+            }
         }
     }
 }

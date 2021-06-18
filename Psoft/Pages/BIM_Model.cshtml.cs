@@ -30,7 +30,7 @@ namespace Psoft.Pages.WebsitePages
             var path = manageProjects.getPathOfActivatedProject();
             Building Project = new Building();
 
-            var wexPath = Project.getWEXBIMPath(path);
+            var wexPath = Project.getWEXBIM(path);
             string fileName = "CrossBIMBuilding.wexBIM";
             var uploadParams = new RawUploadParams()
             {  // by default, ResourceType is already set to "raw"

@@ -33,9 +33,9 @@ namespace Psoft.Domain
         {
         }
 
-        public void getWEXBIM(string filePath)
+        public string getWEXBIM(string filePath)
         {
-          string fileName = filePath;
+            string fileName = filePath;
             using (var model = IfcStore.Open(fileName))
             {
                 var context = new Xbim3DModelContext(model);
@@ -47,12 +47,13 @@ namespace Psoft.Domain
                     using (var wexBimBinaryWriter = new BinaryWriter(wexBiMfile))
                     {
                         model.SaveAsWexBim(wexBimBinaryWriter);
-                        
+
                         wexBimBinaryWriter.Close();
                     }
                     wexBiMfile.Close();
 
                 }
+                return wexBimFilename;
             }
 
         }
