@@ -40,11 +40,12 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link"><i class="fas fa-home"></i>  Home</a>
+                    <a asp-page="./Home" class="nav-link"><i class="fas fa-home"></i>  Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link"><i class="fas fa-address-book"></i>  Contact</a>
                 </li>
+             
             </ul>
 
             <!-- Right navbar links -->
@@ -81,7 +82,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -97,7 +98,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Civil Engineering informatics
@@ -113,7 +114,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
@@ -173,7 +174,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a asp-page="./Home" class="brand-link">
                 <img src="~/imgs/Psoft Simple.jpg" alt="Psoft" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-bolder text-center">  PSOFT</span>
                 @*<p class="brand-text font-weight-bolder text-center">PSOFT</p>*@
@@ -188,7 +189,8 @@
 
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Ahmed Gameel</a>
+                                              
+                        <a  class="d-block" asp-area="Identity">@User.Identity.Name</a>
                     </div>
                 </div>
 
@@ -208,159 +210,197 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            @*menu-open*@
-                            <a asp-page="./Dashboard" class="nav-link ">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                    @*<i class="right fas fa"></i>*@
-                                </p>
-                            </a>
 
-                        </li>
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <li class="nav-item">
+                                @*menu-open*@
+                                <a asp-page="./Dashboard" class="nav-link ">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Dashboard
+                                        @*<i class="right fas fa"></i>*@
+                                    </p>
+                                </a>
 
-                        <li class="nav-item">
-                            <a asp-page="./Projects" class="nav-link">
-                                @*<i class="nav-icon fas fa-copy"></i>*@
-                                <i class="fas fa-folder-open"></i>
-                                <p>
-                                    Project
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                    @*<span class="badge badge-info right">6</span>*@
-                                </p>
-                            </a>
-                            @*<ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/layout/top-nav.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Top Navigation</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Top Navigation + Sidebar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/boxed.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Boxed</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Fixed Sidebar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Fixed Navbar</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/fixed-footer.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Fixed Footer</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Collapsed Sidebar</p>
-                                        </a>
-                                    </li>
-                                </ul>*@
-                        </li>
-                        <li class="nav-item">
-                            <a asp-page="./CostEstimation" class="nav-link">
-                                @*<i class="nav-icon fas fa-edit"></i>*@
-                                <i class="fas fa-file-invoice-dollar"></i>
-                                <p>
-                                    Cost Estimation
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                            @*<ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/forms/general.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>General Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/advanced.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Advanced Elements</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/editors.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Editors</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/forms/validation.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Validation</p>
-                                        </a>
-                                    </li>
-                                </ul>*@
-                        </li>
-                        <li class="nav-item">
-                            <a asp-page="./GotoBOQ" class="nav-link">
-                                @*<i class="nav-icon fas fa-table"></i>*@
-                                <i class="fas fa-file-alt"></i>
-                                <p>
-                                    B.O.Q
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                </p>
-                            </a>
-                            @*<ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/tables/simple.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Simple Tables</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/tables/data.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>DataTables</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/tables/jsgrid.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>jsGrid</p>
-                                        </a>
-                                    </li>
-                                </ul>*@
-                        </li>
-                        <li class="nav-item">
-                            <a asp-page="./Planning" class="nav-link">
-                                @*<i class="nav-icon fas fa-copy"></i>*@
-                                <i class="fas fa-list-alt"></i>
-                                <p>
-                                    Planning
+                            </li>
+                        }
 
-                                    @*<i class="fas fa-angle-left right"></i>*@
-                                    @*<span class="badge badge-info right">6</span>*@
-                                </p>
-                            </a>
+                        @if (User.IsInRole("Contractor"))
+                        {
 
-                        </li>
+                            <li class="nav-item">
+                                <a asp-page="./ContractorDetails" class="nav-link">
+                                    @*<i class="nav-icon fas fa-copy"></i>*@
+                                    <i class="fas fa-cube"></i>
+                                    <p>
+                                        Profile
+
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                        @*<span class="badge badge-info right">6</span>*@
+                                    </p>
+                                </a>
+
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Owner"))
+                        {
+
+                            <li class="nav-item">
+                                <a asp-page="./Projects" class="nav-link">
+                                    @*<i class="nav-icon fas fa-copy"></i>*@
+                                    <i class="fas fa-folder-open"></i>
+                                    <p>
+                                        Project
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                        @*<span class="badge badge-info right">6</span>*@
+                                    </p>
+                                </a>
+                                @*<ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="pages/layout/top-nav.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Top Navigation</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Top Navigation + Sidebar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/boxed.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Boxed</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Fixed Sidebar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Fixed Sidebar <small>+ Custom Area</small></p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Fixed Navbar</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/fixed-footer.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Fixed Footer</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Collapsed Sidebar</p>
+                        </a>
+                    </li>
+                </ul>*@
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <li class="nav-item">
+                                <a asp-page="./CostEstimation" class="nav-link">
+                                    @*<i class="nav-icon fas fa-edit"></i>*@
+                                    <i class="fas fa-file-invoice-dollar"></i>
+                                    <p>
+                                        Cost Estimation
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                    </p>
+                                </a>
+                                @*<ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="pages/forms/general.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>General Elements</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/forms/advanced.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Advanced Elements</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/forms/editors.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Editors</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/forms/validation.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Validation</p>
+                        </a>
+                    </li>
+                </ul>*@
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <li class="nav-item">
+                                <a asp-page="./GotoBOQ" class="nav-link">
+                                    @*<i class="nav-icon fas fa-table"></i>*@
+                                    <i class="fas fa-file-alt"></i>
+                                    <p>
+                                        B.O.Q
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                    </p>
+                                </a>
+                                @*<ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="pages/tables/simple.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Simple Tables</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/tables/data.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>DataTables</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pages/tables/jsgrid.html" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>jsGrid</p>
+                        </a>
+                    </li>
+                </ul>*@
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Owner"))
+                        {
+                            <li class="nav-item">
+                                <a asp-page="./Planning" class="nav-link">
+                                    @*<i class="nav-icon fas fa-copy"></i>*@
+                                    <i class="fas fa-list-alt"></i>
+                                    <p>
+                                        Planning
+
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                        @*<span class="badge badge-info right">6</span>*@
+                                    </p>
+                                </a>
+
+                            </li>
+                        }
                         <li class="nav-item">
                             <a asp-page="./BIM_Model" class="nav-link">
                                 @*<i class="nav-icon fas fa-copy"></i>*@
@@ -374,26 +414,48 @@
                             </a>
 
                         </li>
+
+                        @if (User.IsInRole("Contractor"))
+                        {
+
+                            <li class="nav-item">
+                                <a asp-page="./SubmitBOQ" class="nav-link">
+                                    @*<i class="nav-icon fas fa-copy"></i>*@
+                                    <i class="fas fa-cube"></i>
+                                    <p>
+                                        SubmitB.O.Q
+
+                                        @*<i class="fas fa-angle-left right"></i>*@
+                                        @*<span class="badge badge-info right">6</span>*@
+                                    </p>
+                                </a>
+
+                            </li>
+                        }
+
+
+
+
                         <!-- Menu -->
                         @*<li>
-                                <ul>
-                                    <li><a asp-page="./Index">Dash board</a></li>
-                                    <li><a asp-page="./Projects">Project</a></li>
-                                    <li><a asp-page="./CostEstimation">Cost Estimation</a></li>
-                                    <li><a asp-page="./GotoBOQ">BOQ</a></li>
-                                    <li><a asp-page="./Invoice">Invoice</a></li>
-                                    <li><a asp-page="./Planning">Planning</a></li>
-                                    <li><a asp-page="./BIM_Model">BIM Model</a></li>
+            <ul>
+                <li><a asp-page="./Index">Dash board</a></li>
+                <li><a asp-page="./Projects">Project</a></li>
+                <li><a asp-page="./CostEstimation">Cost Estimation</a></li>
+                <li><a asp-page="./GotoBOQ">BOQ</a></li>
+                <li><a asp-page="./Invoice">Invoice</a></li>
+                <li><a asp-page="./Planning">Planning</a></li>
+                <li><a asp-page="./BIM_Model">BIM Model</a></li>
 
-                                    <li><a href="https://www.google.com">Sign out</a></li>
-                                </ul>
+                <li><a href="https://www.google.com">Sign out</a></li>
+            </ul>
 
-                            </li>*@
+        </li>*@
 
                         <li class="nav-header">Others</li>
 
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a asp-page="./Calendar" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     Calendar
@@ -402,7 +464,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a asp-page="./Gallery" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Gallery
@@ -410,13 +472,13 @@
                             </a>
                         </li>
                         @*<li class="nav-item">
-                                <a href="pages/kanban.html" class="nav-link">
-                                    <i class="nav-icon fas fa-columns"></i>
-                                    <p>
-                                        Kanban Board
-                                    </p>
-                                </a>
-                            </li>*@
+            <a href="pages/kanban.html" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                    Kanban Board
+                </p>
+            </a>
+        </li>*@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
@@ -426,105 +488,113 @@
                                 </p>
                             </a>
                             @*<ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Inbox</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/mailbox/compose.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Compose</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Read</p>
-                                        </a>
-                                    </li>
-                                </ul>*@
+                <li class="nav-item">
+                    <a href="pages/mailbox/mailbox.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Inbox</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/mailbox/compose.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Compose</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/mailbox/read-mail.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Read</p>
+                    </a>
+                </li>
+            </ul>*@
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <p>
-                                    Sign Out
-                                </p>
-                            </a>
-                        </li>
-                        @*<li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-book"></i>
+                            <form class="form-inline nav-link" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+
+                                <button type="submit" class="nav-link  btn btn-link nav-item  text-left " style="padding:0px"><i class="fas fa-sign-out-alt" style="padding-left:5px"></i> <p>Logout</p> </button>
+                            </form>
+
+                  
+                            @*<a asp-page="/Account/Logout" asp-area="Identity" class="nav-link">
+                                    <i class="fas fa-sign-out-alt"></i>
                                     <p>
-                                        Pages
-                                        <i class="fas fa-angle-left right"></i>
+                                        Sign Out
                                     </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="pages/examples/invoice.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Invoice</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/profile.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Profile</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/e-commerce.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>E-commerce</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/projects.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Projects</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/project-add.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Project Add</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/project-edit.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Project Edit</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/project-detail.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Project Detail</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/contacts.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Contacts</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/faq.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>FAQ</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pages/examples/contact-us.html" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Contact us</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>*@
+                                         </a>*@
+                        </li>
+                       
+
+                        @*<li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>
+                    Pages
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="pages/examples/invoice.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Invoice</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/profile.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Profile</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/e-commerce.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>E-commerce</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/projects.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Projects</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/project-add.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Project Add</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/project-edit.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Project Edit</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/project-detail.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Project Detail</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/contacts.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Contacts</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/faq.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>FAQ</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/examples/contact-us.html" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Contact us</p>
+                    </a>
+                </li>
+            </ul>
+        </li>*@
 
 
 
@@ -566,8 +636,8 @@
         </div>
 
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2021 <a href="https://adminlte.io">PSOFT</a>.</strong>
+        <footer class="main-footer ">
+            <strong >Copyright &copy; 2021 <a href="https://adminlte.io">PSOFT</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
 

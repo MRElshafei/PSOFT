@@ -13,21 +13,21 @@ namespace Psoft.Pages
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\DreamOnline\OneDrive\Desktop\PSOFT\Psoft\Pages\_ViewImports.cshtml"
+#line 1 "F:\ITI\gradution project\Final submission\PSOFT\Psoft\Pages\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\DreamOnline\OneDrive\Desktop\PSOFT\Psoft\Pages\_ViewImports.cshtml"
+#line 2 "F:\ITI\gradution project\Final submission\PSOFT\Psoft\Pages\_ViewImports.cshtml"
 using Psoft;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\DreamOnline\OneDrive\Desktop\PSOFT\Psoft\Pages\_ViewImports.cshtml"
+#line 3 "F:\ITI\gradution project\Final submission\PSOFT\Psoft\Pages\_ViewImports.cshtml"
 using Psoft.Data;
 
 #line default
@@ -280,7 +280,8 @@ using Psoft.Data;
                             PreviousPercentage = PreviousPercentage + Percen01[i];
                             //console.log(`Percen[i] = ${Percen[i]}`)
                             //console.log(`i = ${i}`)
-                        }");
+                        }
+");
                 WriteLiteral(@"
                     } else if (y == 1) {
                         for (var i = z + 1; i > 1; i--) {
@@ -417,7 +418,8 @@ using Psoft.Data;
                                 E = `${d}-${m}-2020`;
                             }
                         }
-                    }");
+                    }
+");
                 WriteLiteral(@"
                 }
                 return E;
