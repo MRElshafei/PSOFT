@@ -51,6 +51,15 @@ namespace Psoft
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                  .AddDefaultUI().AddDefaultTokenProviders();
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 5;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+
+            });
             services.AddRazorPages();
             services.AddMvc().AddRazorPagesOptions(options =>
             {

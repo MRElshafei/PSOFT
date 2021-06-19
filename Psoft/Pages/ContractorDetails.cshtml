@@ -2,3 +2,127 @@
 @model Psoft.Pages.ContractorDetailsModel
 @{
 }
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1>Contractor Form</h1>
+			</div>
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active">Form</li>
+				</ol>
+			</div>
+		</div>
+	</div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card card-primary">
+				<div class="card-header">
+					<h3 class="card-title">General</h3>
+
+					<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+							<i class="fas fa-minus"></i>
+						</button>
+					</div>
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label for="inputName">Full Name</label>
+						<input type="text" id="inputName" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="inputDescription">Address</label>
+						<textarea id="inputDescription" class="form-control" rows="1"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="exampleSelectBorderWidth2">Contractor Class </label>
+						<select class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
+							<option>Class 1</option>
+							<option>Class 2</option>
+							<option>Class 3</option>
+							<option>Class 4</option>
+							<option>Class 5</option>
+							<option>Class 6</option>
+							<option>Class 7</option>
+
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="inputClientCompany">Company Name</label>
+						<input type="text" id="inputClientCompany" class="form-control">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleSelectBorderWidth2">Work type </label>
+						<select class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
+							<option>General Contractor</option>
+							<option>Concrete Specialist</option>
+							<option>Landscapers</option>
+							<option>Steelworker</option>
+							<option>Glass and Glazing</option>
+							<option>Excavator</option>
+							<option>other</option>
+
+						</select>
+					</div>
+
+				</div>
+				<!-- /.card-body -->
+			</div>
+			<!-- /.card -->
+		</div>
+		<div class="col-md-6">
+			<div class="card card-secondary">
+				<div class="card-header">
+					<h3 class="card-title">Details</h3>
+
+					<div class="card-tools">
+						<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+							<i class="fas fa-minus"></i>
+						</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputFile">Upload previous work experience</label>
+					<div class="input-group">
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="exampleInputFile">
+							<label class="custom-file-label" for="exampleInputFile">PDF File</label>
+						</div>
+						<div class="input-group-append">
+							<span class="input-group-text">Upload</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputFile">Upload Commercial register and tax administration</label>
+					<div class="input-group">
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="exampleInputFile">
+							<label class="custom-file-label" for="exampleInputFile">PDF File</label>
+						</div>
+						<div class="input-group-append">
+							<span class="input-group-text">Upload</span>
+						</div>
+					</div>
+				</div>
+				<!-- /.card-body -->
+			</div>
+			<!-- /.card -->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+
+
+			<a asp-page="./SubmitBOQ" class="btn btn-secondary">Save</a>
+		</div>
+	</div>
+</section>
