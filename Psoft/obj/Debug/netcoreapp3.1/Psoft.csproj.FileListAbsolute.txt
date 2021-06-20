@@ -616,3 +616,5 @@ E:\PSOFT FINAL\PSOFT\Psoft\obj\Debug\netcoreapp3.1\Psoft.csproj.CopyComplete
 E:\PSOFT FINAL\PSOFT\Psoft\obj\Debug\netcoreapp3.1\Psoft.dll
 E:\PSOFT FINAL\PSOFT\Psoft\obj\Debug\netcoreapp3.1\Psoft.pdb
 E:\PSOFT FINAL\PSOFT\Psoft\obj\Debug\netcoreapp3.1\Psoft.genruntimeconfig.cache
+E:\PSOFT FINAL\PSOFT\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Offers.cshtml.g.cs
+E:\PSOFT FINAL\PSOFT\Psoft\obj\Debug\netcoreapp3.1\Razor\Pages\Thankyou.cshtml.g.cs

@@ -4,8 +4,8 @@
 }
 <h1 class="text-lg-center"><i class="fas fa-folder-open"></i>Projects</h1>
 <br />
- 
-<a  class="btn btn-info" asp-page="./EditProject" asp-route-projectId="0">Add New Project +</a> 
+
+<a class="btn btn-info" asp-page="./EditProject" asp-route-projectId="0">ADD +</a>
 <br />
 <table class="table">
 
@@ -19,21 +19,21 @@
         <th class="text-center"> Edit</th>
         <th class="text-center"> Delete</th>
         <th class="text-center"> Activate</th>
-      
+
     </tr>
 
     @foreach (var project in Model.projects)
     {
-<tr>
-    <td class="text-center">@project.ProjectName</td>
-    <td class="text-center">@project.Location</td>
-    <td class="text-center">@project.Category</td>
-    <td class="text-center">@project.Owner</td>
-    <td class="text-center">@project.Consultant</td>
-    <td class="text-center">@project.Currency</td>
-    <td class="text-center"><a asp-route-projectId="@project.ID" asp-page="./EditProject"><i class="fas fa-edit"></i></a></td>
-    <td class="text-center"><a asp-route-projectId="@project.ID" asp-page="./DeleteProject" onclick="return confirm('Are You sure you want to Delete Project: @project.ProjectName')"><i class="fas fa-trash-alt"></i></a></td>                                      @*Delete*@
-    <td class="text-center"><a asp-route-project="@project.ID" asp-page="./ActivatProject"  onclick="return confirm('You have select: @project.ProjectName ')"><i class="btn btn-primary select"> Select</i></a></td>
-</tr>
+        <tr>
+            <td class="text-center">@project.ProjectName</td>
+            <td class="text-center">@project.Location</td>
+            <td class="text-center">@project.Category</td>
+            <td class="text-center">@project.Owner</td>
+            <td class="text-center">@project.Consultant</td>
+            <td class="text-center">@project.Currency</td>
+            <td class="text-center"><a asp-route-projectId="@project.ID" asp-page="./EditProject"><i class="fas fa-edit"></i></a></td>
+            <td class="text-center"><a asp-route-projectId="@project.ID" asp-page="./DeleteProject" onclick="return confirm('Are You sure you want to Delete Project: @project.ProjectName')"><i class="fas fa-trash-alt"></i></a></td>                                      @*Delete*@
+            <td class="text-center"><a asp-route-project="@project.ID" asp-page="./ActivatProject" onclick="return confirm('You have select: @project.ProjectName ')"><i class="btn btn-primary select"> Select</i></a></td>
+        </tr>
     }
 </table>
