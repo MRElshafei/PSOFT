@@ -99,5 +99,18 @@ namespace Psoft.Application.Manage_Projects
                 return "...";
             }
         }
+
+        public int? getActivatedProjectTeam()
+        {
+            
+            if (dBContext.projects.Where(p => p.IsDeleted == false).Count() > 0)
+            {
+                return dBContext.projects.SingleOrDefault(p => p.IsActive == true && p.IsDeleted == false).ProjectTeam;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }

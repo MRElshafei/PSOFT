@@ -9,7 +9,6 @@ namespace Psoft.Domain
 
 
         public int ID { get; set; }
-
         public string ProjectName { get; set; }
         public string Location { get; set; }
         public string Path { get; set; }
@@ -19,7 +18,7 @@ namespace Psoft.Domain
         public string Consultant { get; set; }
         public string Owner { get; set; }
         public string Category { get; set; }
-
+        public int ProjectTeam { get; set; }
         public List<BOQ> BOQ { get; set; }
 
 

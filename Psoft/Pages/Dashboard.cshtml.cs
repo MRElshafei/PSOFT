@@ -23,10 +23,12 @@ namespace Psoft.Pages
 
         public int ProjectCount { get; set; }
         public  string Project  { get; set; }
+        public int? ProjectTeam { get; set; }
         public void OnGet()
         {
             ProjectCount = manageProjects.ProjectCount();
             Project = manageProjects.getActivatedProjectName();
+            ProjectTeam = manageProjects.getActivatedProjectTeam();
         }
     }
 }

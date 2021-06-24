@@ -62,24 +62,24 @@
                         <tr>
                             <th class="pt-3-half">
                                 <label class="form-check-label ">
-                                    <input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Slabs" style="background-color:transparent;">
+                                    <input type="text" size="30" style="color: #0000ff;font-weight:bold;" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Slabs" style="background-color:transparent;">
                                 </label>
 
 
 
                             </th>
                             @{float cummCol = 0;
-                    @foreach (var item in Model.ListOfSlabs)
-                    {
-                        cummCol = cummCol + item.Slabvolume;
-                    } }
+                                @foreach (var item in Model.ListOfSlabs)
+                                {
+                                    cummCol = cummCol + item.Slabvolume;
+                                } }
                             <th>
                                 <label class="form-check-label ">
 
-                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="m3" style="background-color:transparent;">
                                 </label>
                             </th>
-                            <th style="white-space: nowrap;" class="dir1" contenteditable="true">Material/Labor</th>
+                            <th style="white-space: nowrap;" class="dir1" contenteditable="true">Material-Labor</th>
                             <th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
                             <th class="slabv2 totaldir fullresult">
 
@@ -94,7 +94,7 @@
                             <th>
                                 <label>
 
-                                    <input type="text" size="4" class="unprice" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+                                    <input type="text" size="4" class="unprice" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent; text-align:center;">
 
                                 </label>
                             </th>
@@ -120,36 +120,37 @@
                         @foreach (var slab in Model.ListOfSlabs)
                         {
 
-            <tr>
+                            <tr>
 
 
-                <td class="pt-3-half" contenteditable="true">@slab.SlabName</td>
+                                <td class="pt-3-half" contenteditable="true">@slab.SlabName</td>
 
 
-                <td class="pt-3-half" contenteditable="true">M3</td>
-                <td class="pt-3-half dir1" contenteditable="true">0</td>
-                <td class="pt-3-half dir2" contenteditable="true">0</td>
-                <td class="result slabv1 totaldir"></td>
-                <td id="v1" class="value1" contenteditable="true">
-                    @(Math.Round((slab.Slabvolume),2))
-                </td>
-                <td class="value2" contenteditable="true"></td>
-                <td class="pt-3-half">
-                    <span class="table-up">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
-                    </span>
-                    <span class="table-down">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
-                    </span>
-                </td>
-                <td>
-                    <span class="table-remove">
-                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
-                            Remove
-                        </button>
-                    </span>
-                </td>
-            </tr>}
+                                <td class="pt-3-half" contenteditable="true">m3</td>
+                                <td class="pt-3-half dir1" contenteditable="true">0</td>
+                                <td class="pt-3-half dir2" contenteditable="true">0</td>
+                                <td class="result slabv1 totaldir"></td>
+                                <td id="v1" class="value1" contenteditable="true">
+                                    @(Math.Round((slab.Slabvolume),2))
+                                </td>
+                                <td class="value2" contenteditable="true"></td>
+                                <td class="pt-3-half">
+                                    <span class="table-up">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+                                    </span>
+                                    <span class="table-down">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="table-remove">
+                                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                                            Remove
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        }
 
 
 
@@ -159,17 +160,17 @@
                             <th class="pt-3-half">
 
                                 <label class="form-check-label ">
-                                    <input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Beams" style="background-color:transparent;">
+                                    <input type="text" size="30" style="color: #0000ff;font-weight:bold;" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Beams" style="background-color:transparent;">
                                 </label>
 
 
                             </th>
 
                             @{float cumm = 0;
-                    @foreach (var item in Model.ListOfBeams)
-                    {
-                        cumm = cumm + item.BeamVolum;
-                    } }
+                                @foreach (var item in Model.ListOfBeams)
+                                {
+                                    cumm = cumm + item.BeamVolum;
+                                } }
 
 
 
@@ -177,10 +178,10 @@
 
                                 <label class="form-check-label ">
 
-                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="m3" style="background-color:transparent;">
                                 </label>
                             </th>
-                            <th style="white-space: nowrap;" class="dir1" contenteditable="true">Material/Labor</th>
+                            <th style="white-space: nowrap;" class="dir1" contenteditable="true">Material-Labor</th>
                             <th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
                             <td class="fullresult beamv2 totaldir">
                             </td>
@@ -193,10 +194,10 @@
 
 
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <label>
 
-                                    <input type="text" size="4" class="unprice1" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+                                    <input type="text" size="4" class="unprice1" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent; text-align:center;">
 
                                 </label>
                             </th>
@@ -221,59 +222,60 @@
                         </tr>
                         @foreach (var Beam in Model.ListOfBeams)
                         {
-            <tr>
-                <td class="pt-3-half" contenteditable="true">@Beam.BeamName</td>
-                <td class="pt-3-half" contenteditable="true">M3</td>
-                <td class="pt-3-half dir1" contenteditable="true">0</td>
-                <td class="pt-3-half dir2" contenteditable="true">0</td>
-                <td class="result beamv1 totaldir"></td>
-                <td id="v1" class="value1" contenteditable="true">
-                    @Math.Round((Beam.BeamVolum / 1000000000), 2)
-                </td>
+                            <tr>
+                                <td class="pt-3-half" contenteditable="true">@Beam.BeamName</td>
+                                <td class="pt-3-half" contenteditable="true">m3</td>
+                                <td class="pt-3-half dir1" contenteditable="true">0</td>
+                                <td class="pt-3-half dir2" contenteditable="true">0</td>
+                                <td class="result beamv1 totaldir"></td>
+                                <td id="v1" class="value1" contenteditable="true">
+                                    @Math.Round((Beam.BeamVolum / 1000000000), 2)
+                                </td>
 
-                <td class="value2" contenteditable="true"></td>
+                                <td class="value2" contenteditable="true"></td>
 
 
-                <td class="pt-3-half">
-                    <span class="table-up">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
-                    </span>
-                    <span class="table-down">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
-                    </span>
-                </td>
-                <td>
-                    <span class="table-remove">
-                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
-                            Remove
-                        </button>
-                    </span>
-                </td>
-            </tr>}
+                                <td class="pt-3-half">
+                                    <span class="table-up">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+                                    </span>
+                                    <span class="table-down">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="table-remove">
+                                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                                            Remove
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        }
 
                         <!-- Wall Element-->
                         <span style="display:none;">@{i++;}</span>
                         <tr>
                             <th class="pt-3-half">
                                 <label class="form-check-label ">
-                                    <input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Architecture Element:Walls" style="background-color:transparent;">
+                                    <input type="text" size="30" style="color: #0000ff;font-weight:bold;" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Architecture Element:Walls" style="background-color:transparent;">
                                 </label>
 
                             </th>
 
                             @{double cumm1 = 0;
-                    @foreach (var item in Model.ListOfWalls)
-                    {
-                        cumm1 = cumm1 + item.WallVolum;
-                    } }
+                                @foreach (var item in Model.ListOfWalls)
+                                {
+                                    cumm1 = cumm1 + item.WallVolum;
+                                } }
                             <th>
 
                                 <label class="form-check-label ">
 
-                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="m3" style="background-color:transparent;">
                                 </label>
                             </th>
-                            <th style="white-space: nowrap;" class="dir1" contenteditable="true">Material/Labor</th>
+                            <th style="white-space: nowrap;" class="dir1" contenteditable="true">Material-Labor</th>
                             <th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
                             <td class="fullresult wallv2 totaldir">
                             </td>
@@ -287,9 +289,9 @@
 
                             </th>
                             <th>
-                                <label>
+                                <label class="text-center">
 
-                                    <input type="text" size="4" class="unprice2" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+                                    <input type="text" size="4" class="unprice2" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent; text-align:center;">
 
                                 </label>
                             </th>
@@ -318,21 +320,19 @@
                         @foreach (var wall in Model.ListOfWalls)
                         {
 
-            <tr>
-                <td class="pt-3-half" contenteditable="true">@wall.WallName</td>
+                            <tr>
+                                <td class="pt-3-half" contenteditable="true">@wall.WallName</td>
 
-                <td class="pt-3-half" contenteditable="true">M3</td>
-                <td class="pt-3-half dir1" contenteditable="true">0</td>
-                <td class="pt-3-half dir2" contenteditable="true">0</td>
-                <td class="result wallv1 totaldir"></td>
-                <td id="v1" class="value1" contenteditable="true">
-                    @Math.Round((wall.WallVolum / 1000000000), 2)
-
-
-                </td>
-                <td class="value2" contenteditable="true"></td>
+                                <td class="pt-3-half" contenteditable="true">m3</td>
+                                <td class="pt-3-half dir1" contenteditable="true">0</td>
+                                <td class="pt-3-half dir2" contenteditable="true">0</td>
+                                <td class="result wallv1 totaldir"></td>
+                                <td id="v1" class="value1" contenteditable="true">
+                                    @Math.Round((wall.WallVolum / 1000000000), 2)
 
 
+                                </td>
+                                <td class="value2" contenteditable="true"></td>
 
 
 
@@ -341,22 +341,25 @@
 
 
 
-                <td class="pt-3-half">
-                    <span class="table-up">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
-                    </span>
-                    <span class="table-down">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
-                    </span>
-                </td>
-                <td>
-                    <span class="table-remove">
-                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
-                            Remove
-                        </button>
-                    </span>
-                </td>
-            </tr>}
+
+
+                                <td class="pt-3-half">
+                                    <span class="table-up">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+                                    </span>
+                                    <span class="table-down">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="table-remove">
+                                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                                            Remove
+                                        </button>
+                                    </span>
+                                </td>
+                            </tr>
+                        }
 
 
                         <!-- Coloum Element-->
@@ -366,7 +369,7 @@
                                 <span style="display:none;">@{i++;}</span>
 
                                 <label class="form-check-label ">
-                                    <input type="text" size="30" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Column" style="background-color:transparent;">
+                                    <input type="text" size="30" style="color: #0000ff;font-weight:bold;" asp-for="BOQDTOList.BOQs[i].Item_Description" value="Structure Element :Concrete Column" style="background-color:transparent;">
                                 </label>
 
                             </th>
@@ -374,18 +377,18 @@
 
                             @{float cumm2 = 0;
 
-                    @foreach (var item in Model.ListOfColumns)
-                    {
-                        cumm2 = cumm2 + item.ColumVolum;
+                                @foreach (var item in Model.ListOfColumns)
+                                {
+                                    cumm2 = cumm2 + item.ColumVolum;
 
-                    } }
+                                } }
                             <th>
                                 <label class="form-check-label ">
 
-                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="M3" style="background-color:transparent;">
+                                    <input type="text" size="3" asp-for="BOQDTOList.BOQs[i].Unit" class="text-center" value="m3" style="background-color:transparent;">
                                 </label>
                             </th>
-                            <th style="white-space: nowrap;" class="dir1" contenteditable="true"> Material/Labor</th>
+                            <th style="white-space: nowrap;" class="dir1" contenteditable="true"> Material-Labor</th>
                             <th style="white-space: nowrap;" class="dir2" contenteditable="true">Utilities</th>
 
                             <td class="fullresult colv2 totaldir">
@@ -399,10 +402,10 @@
 
 
                             </th>
-                            <th>
+                            <th class="text-center">
                                 <label>
 
-                                    <input type="text" size="4" class="unprice3" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent;">
+                                    <input type="text" size="4" class="unprice3" asp-for="BOQDTOList.BOQs[i].Unit_Price" style="background-color:transparent; text-align:center;">
 
                                 </label>
                             </th>
@@ -431,35 +434,36 @@
 
                         @foreach (var Col in Model.ListOfColumns)
                         {
-            <tr>
-                <td class="pt-3-half" contenteditable="true">@Col.ColumName</td>
-                <td class="pt-3-half" contenteditable="true">M3</td>
-                <td class="pt-3-half dir1" contenteditable="true">0</td>
-                <td class="pt-3-half dir2" contenteditable="true">0</td>
-                <td class="result colv1 totaldir"></td>
-                <td id="v1" class="value1" contenteditable="true">
+                            <tr>
+                                <td class="pt-3-half" contenteditable="true">@Col.ColumName</td>
+                                <td class="pt-3-half" contenteditable="true">m3</td>
+                                <td class="pt-3-half dir1" contenteditable="true">0</td>
+                                <td class="pt-3-half dir2" contenteditable="true">0</td>
+                                <td class="result colv1 totaldir"></td>
+                                <td id="v1" class="value1" contenteditable="true">
 
-                    @Math.Round((Col.ColumVolum / 1000000000), 2)
-                </td>
-                <td class="value2" contenteditable="true"></td>
+                                    @Math.Round((Col.ColumVolum / 1000000000), 2)
+                                </td>
+                                <td class="value2" contenteditable="true"></td>
 
-                <td class="pt-3-half">
-                    <span class="table-up">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
-                    </span>
-                    <span class="table-down">
-                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
-                    </span>
-                </td>
-                <td>
-                    <span class="table-remove">
-                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
-                            Remove
-                        </button>
-                    </span>
-                </td>
+                                <td class="pt-3-half">
+                                    <span class="table-up">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a>
+                                    </span>
+                                    <span class="table-down">
+                                        <a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="table-remove">
+                                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">
+                                            Remove
+                                        </button>
+                                    </span>
+                                </td>
 
-            </tr>}
+                            </tr>
+                        }
 
 
 
@@ -540,24 +544,24 @@
 <tr class="hide">
 
 
-                                                                    <td class="pt-3-half" contenteditable="true"></td>
-                                                                        <td class="pt-3-half" contenteditable="true">M3</td>
-                                                                        <td class="value2" contenteditable="true">0</td>
-                                                                                <td id="v1" class="value1" contenteditable="true">0
-                                                                                <td class="result wallv1" contenteditable="true"></td>
-                                                                                      <td class="result wallv1" contenteditable="true">0</td>
+                                                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                                                    <td class="pt-3-half" contenteditable="true">M3</td>
+                                                                                    <td class="value2" contenteditable="true">0</td>
+                                                                                            <td id="v1" class="value1" contenteditable="true">0
+                                                                                            <td class="result wallv1" contenteditable="true"></td>
+                                                                                                  <td class="result wallv1" contenteditable="true">0</td>
 <td class="result wallv1" contenteditable="true"></td>
-                                                                              <td class="pt-3-half">
-                                                                                <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-                                                                                <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-                                                                              </td>
-                                                                              <td>
-                                                                                <span class="table-remove"><button
-                                                                                    type="button"
-                                                                                    class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
-                                                                                    Remove
-                                                                                  </button></span>
-                                                                              </td>
+                                                                                          <td class="pt-3-half">
+                                                                                            <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+                                                                                            <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+                                                                                          </td>
+                                                                                          <td>
+                                                                                            <span class="table-remove"><button
+                                                                                                type="button"
+                                                                                                class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light" onblur="calculatTotalCost()">
+                                                                                                Remove
+                                                                                              </button></span>
+                                                                                          </td>
 </tr>
 `;
 
@@ -586,6 +590,44 @@
 
 
 
+
+
+
+
+    <script>
+        function saved() {
+            alert("data saved successfully");
+        }
+    </script>
+
+
+    <script>
+        function export2csv() {
+            let data = "";
+            const tableData = [];
+            const rows = document.querySelectorAll("table tr");
+            for (const row of rows) {
+                const rowData = [];
+                for (const [index, column] of row.querySelectorAll("th, td").entries()) {
+                    // To retain the commas in the "Description" column, we can enclose those fields in quotation marks.
+                    if ((index + 1) % 3 === 0) {
+                        rowData.push('"' + column.innerText + '"');
+                    } else {
+                        rowData.push(column.innerText);
+                    }
+                }
+                tableData.push(rowData.join(","));
+            }
+            data += tableData.join("\n");
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(new Blob([data], { type: "text/csv" }));
+            a.setAttribute("download", "data.csv");
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+    </script>
     <script>
         function createPDF() {
             var sTable = document.getElementById('table').innerHTML;
@@ -604,25 +646,14 @@
             win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
             win.document.write('</head>');
             win.document.write('<body>');
-            win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+            win.document.write(sTable);
             win.document.write('</body></html>');
+            win.document.close();
+            win.print();
 
-            win.document.close(); 	// CLOSE THE CURRENT WINDOW.
 
-            win.print();    // PRINT THE CONTENTS.
+
         }
     </script>
-
-
-
-
-    <script>
-        function saved() {
-            alert("data saved successfully");
-        }
-    </script>
-
-
-
 
 </html>

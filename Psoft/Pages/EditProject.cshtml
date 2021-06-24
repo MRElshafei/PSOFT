@@ -51,6 +51,12 @@
                     <input type="text" aria-label="First name" class="form-control" asp-for="Project.Consultant">
                 </div>
                 <br />
+                <label class="form-label">Projct Team Number</label>
+                <div class="input-group">
+                    <span class="input-group-text"> <i class="fas fa-users"></i></span>
+                    <input type="number" aria-label="First name" class="form-control" asp-for="Project.ProjectTeam">
+                </div>
+                <br />
                 <label class="form-label">Currency</label>
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-money-bill-alt"></i></label>
@@ -81,7 +87,7 @@
                 </div>
 
                 @*This jquery code is required to display the selected
-                    file name in the file upload controls*@
+        file name in the file upload controls*@
 
                 @section Scripts {
                     <script>
