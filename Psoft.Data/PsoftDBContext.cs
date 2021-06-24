@@ -12,6 +12,8 @@ namespace Psoft.Data
         { }
 
         public DbSet<Users> users { get; set; }
+        public DbSet<Owner> Owner { get; set; }
+        public DbSet<Contractor> Contractors { get; set; }
         public DbSet<Projects> projects { get; set; }
 
         public DbSet<BOQ> BOQS { get; set; }

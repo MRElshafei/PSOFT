@@ -25,8 +25,6 @@ namespace Psoft.Domain
         public string ColumMaterials { set; get; }
         public float ColumVolum { set; get; }
 
-        public DateTime StartDate { set; get; }
-        public DateTime EndDate { set; get; }
 
 
         public Column(IfcStore XmlFile, int index)
@@ -52,16 +50,16 @@ namespace Psoft.Domain
             }
             foreach (var Length in Len)
             {
-                if (ColumName.Contains(Length.XDim.ToString()) && ColumName.Contains(Length.YDim.ToString()) && Length.XDim != Length.YDim)
+                if (ColumName.Contains(Math.Round(Length.XDim).ToString()) && ColumName.Contains(Math.Round(Length.YDim).ToString()) && Math.Round(Length.XDim) != Math.Round(Length.YDim))
                 {
-                    ColumLength = (float)Length.XDim;
-                    ColumWidth = (float)Length.YDim;
+                    ColumLength = (float)Math.Round(Length.XDim);
+                    ColumWidth = (float)Math.Round(Length.YDim);
                     break;
                 }
-                else if (ColumName.Contains(Length.XDim.ToString()) && ColumName.Contains(Length.YDim.ToString()))
+                else if (ColumName.Contains(Math.Round(Length.XDim).ToString()) && ColumName.Contains(Math.Round(Length.YDim).ToString()))
                 {
-                    ColumLength = (float)Length.XDim;
-                    ColumWidth = (float)Length.YDim;
+                    ColumLength = (float)Math.Round(Length.XDim);
+                    ColumWidth = (float)Math.Round(Length.YDim);
                 }
             }
             foreach (var Hight in Hig)
@@ -77,8 +75,6 @@ namespace Psoft.Domain
             }
 
             this.ColumVolum = ColumLength * ColumWidth * ColumHeight;
-            this.StartDate = new DateTime(2021, 1, 1);
-            this.EndDate = new DateTime(2021, 1, 7);
 
         }
     }

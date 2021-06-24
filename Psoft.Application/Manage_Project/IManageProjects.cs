@@ -17,5 +17,6 @@ namespace Psoft.Application.Manage_Projects
         int ProjectCount();
         string getPathOfActivatedProject();
         string getActivatedProjectName();
+        int? getActivatedProjectTeam();
     }
 }

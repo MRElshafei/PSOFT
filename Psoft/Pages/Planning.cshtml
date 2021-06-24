@@ -2,401 +2,161 @@
 @model Psoft.Pages.WebsitePages.PlanningModel
 
 
-
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Gantt</title>
-    <link rel="stylesheet" href="~/css/Planning/frappe-gantt.css" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Export data : MS Project, PrimaveraP6, Excel &amp; iCal</title>
+    <script src="~/codebase/dhtmlxgantt.js"></script>
+    <script src="https://export.dhtmlx.com/beta/gantt/api.js?v=7.1.3"></script>
+    <link rel="stylesheet" href="~/codebase/dhtmlxgantt.css">
+    <link rel="stylesheet" href="~/css/Planning/controls_styles.css">
+
+    @*<script src="~/js/Planning/testdata.js"></script>*@
     <style>
-        body {
-            font-family: sans-serif;
-            overflow-x: hidden
-        }
-
-        .a {
-            width: 100%;
-            margin: 0 auto;
-        }
-        /* custom class */
-        .gantt .bar-milestone .bar {
-            fill: tomato;
-        }
-
-        .gantt-target {
-            width: 100%;
-        }
-
-        table {
+        html, body {
+            height: 100%;
+            padding: 0px;
             margin: 0px;
         }
     </style>
-
-    <script src="~/js/Planning/frappe-gantt.js"></script>
 </head>
+
 <body>
 
-    <div id="Cover" class="jumbotron text-center">
-        <h1>Planning</h1>
-        <p>organize your project Planning facilety</p>
-        <img src="~/imgs/73a97ed7-eac4-4755-a435-757bd650181b.jpg" class="rounded-circle mt-4" alt="Cinque Terre" style="width:120px;height:120px;">
-        <div class="container mt-5">
-            <div class="row mt-5">
-                <div class="col-sm-2">
-                </div>
-                <div class="col-sm-4">
-                    <a id="AutomaticPlanning" class="btn btn-primary btn-lg btn-block text-white">Start Automatic Planning</a>
-                    <p>You will depend on P-SOFT methods and tasks to create your planning ghantt chart</p>
-                </div>
-                <div class="col-sm-4">
-                    <a id="StaticPlanning" class="btn btn-primary btn-lg btn-block text-white"> Start Planning From Scratch </a>
-                    <p>You will get empty page and then apply your login in it to create your own planning gantt cgart</p>
-                </div>
-                <div class="col-sm-2">
-                </div>
+    <div id="Starting" class="card card-primary">
+        <h3 class="card-header"> <i class="fas fa-edit"></i> Scheduling  Form</h3>
+        <div class="card-body">
+            <div class="">
+                <label for="exampleFormControlInput1" class="form-label mt-4">Project Starting Date</label>
+                <input name="ProjectStartDate" class="form-control" id="ProjectStartDate" type="date" placeholder="2021-05-21" />
+
+                <label for="exampleFormControlInput1" class="form-label mt-4">Project Duration</label>
+                <input name="ProjectEndDate" class="form-control" id="ProjectEndDate" type="number" placeholder="200 Days" />
+
+                <input class="btn btn-lg btn-primary mt-5" type="button" onclick="SubmitTheProject()" value="Submit">
             </div>
         </div>
     </div>
 
-    <div id="Starting" class="">
-        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Project Starting Date</label>
-        <input name="ProjectStartDate" class="form-control" id="ProjectStartDate" type="text" placeholder="2021-05-21" />
-
-        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Project End Date</label>
-        <input name="ProjectEndDate" class="form-control" id="ProjectEndDate" type="text" placeholder="2021-05-21" />
-
-        <input class="btn btn-lg btn-primary mt-5" type="button" onclick="SubmitTheProject()" value="Submit The Task">
-    </div>
 
     <div class="card" id="PlanningDiv">
-
-
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-            Planning For Security Room Project
+            <i class="fas fa-list-alt"></i>Scheduling
         </h3>
+        <h6 style="color:steelblue" class="card-header text-center font-weight-bold text-uppercase py-4">
+            Project Name : @Model.ProjectName
+        </h6>
         <div class="card-body">
-            <div class="table-editable">
-                <button onclick="ShowAddTask()" id="ShowAddTask" @*style="border:solid 2px #7057b7"*@ class="btn btn-outline-primary">Add New Task</button>
-                <span class="table-add float-right mb-3 mr-2">
-                    <a href="#!" onclick="ShowAddTask()" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a>
-                </span>
-                <div id="PlanningDiv" class="a" style="width:100%;">
-
-                    <div class="row d-flex">
-                        <div id="TableOfTasks" class="col-md-4" style="padding-right:0px;">
-                            <table id="tableofContenets">
-                                <tr style="height:55px;">
-                                    <td style="padding-top:0px; padding-bottom:0px;">Name</td>
-                                    <td style="padding-top:0px; padding-bottom:0px;">Start Date</td>
-                                    <td style="padding-top:0px; padding-bottom:0px;">End Date</td>
-                                </tr>
-
-                            </table>
-                        </div>
-                        <div class="gantt-target col-md-8" style="padding-left:0px;"></div>
-                    </div>
-
-
-                </div>
-
-                <div id="AddNewTask">
-                    <form method="get" id="frm1">
-                        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Task Starting Date</label>
-                        <input name="StartDate" class="form-control" id="StartDate" type="text" placeholder="2021-05-21" />
-
-                        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Task End Date</label>
-                        <input name="EndDate" class="form-control" id="EndDate" type="text" placeholder="2021-05-21" />
-
-                        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Task Name</label>
-                        <input name="TaskName" class="form-control" id="TaskName" type="text" placeholder="Pouring The First Floor Column Concrete" />
-
-                        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Task Progress</label>
-                        <input name="Progress" class="form-control" id="Progress" type="number" placeholder="25" />
-
-                        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Task Dependencises</label>
-                        <input name="Dependencises" class="form-control" id="Dependencises" type="text" placeholder="task 01" />
-
-                        <label for="exampleFormControlInput1" class="form-label mt-4">Enter Task Id</label>
-                        <input name="iD" class="form-control" id="ID" type="text" placeholder="task 01" />
-
-
-                        <label>Select Dependant Model Elements</label>
-                        <select name="DependantElements" id="DependantElements" class="form-select mt-4 d-block w-100">
-                            @foreach (var Col in Model.ListOfColumns)
-                            {
-                                @:<option>@Col.ColumName</option>
-                            }
-
-                            @foreach (var Slab in Model.ListOfSlabs)
-                            {
-                                @:<option>@Slab.SlabName</option>
-                            }
-
-                            @foreach (var Beam in Model.ListOfBeams)
-                            {
-                                @:<option>@Beam.BeamName</option>
-                            }
-
-                            @foreach (var Wall in Model.ListOfWalls)
-                            {
-                                @:<option>@Wall.WallName</option>
-                            }
-                        </select>
-
-                        <input class="btn btn-lg btn-primary mt-5" id="SubmitTheTask" type="button" onclick="SubmitTheTask()" value="Submit The Task">
-                        <input class="btn btn-lg btn-danger mt-5" id="CancelSubmission" type="button" onclick="CancelSubmission()" value="Cancel">
-                    </form>
-                </div>
+            <div class="gantt_control">
+                <input value="Export to MS Project" type="button" onclick='gantt.exportToMSProject({skip_circular_links: false})' style='margin:0 15px;'>
+                <input value="Export to PrimaveraP6" type="button" onclick='gantt.exportToPrimaveraP6({skip_circular_links: false})' style='margin:0 15px;'>
+                <input value="Export to Excel" type="button" onclick='gantt.exportToExcel()' style='margin:0 15px;'>
+                <input value="Export to iCal" type="button" onclick='gantt.exportToICal()' style='margin:0 15px;'>
             </div>
+            <div id="gantt_here" style='width:100%; height: calc(100vh - 52px);'></div>
         </div>
     </div>
 
     <script>
+
         document.getElementById("PlanningDiv").style.display = "none";
-        document.getElementById("Starting").style.display = "none";
-        document.getElementById("AutomaticPlanning").addEventListener('click', () => {
-            document.getElementById("Cover").style.display = "none";
-            document.getElementById("Starting").style.display = "block";
-        })
-        document.getElementById("StaticPlanning").addEventListener('click', () => {
-            document.getElementById("Cover").style.display = "none";
-            document.getElementById("PlanningDiv").style.display = "block";
-            SubmitFreePlanning();
-        })
+        document.getElementById("Starting").style.display = "block";
 
-        function SubmitFreePlanning() {
-            document.getElementById("AddNewTask").style.display = "none";
-            document.getElementById("PlanningDiv").style.display = "block";
-            document.getElementById("Starting").style.display = "none";
-
-            var tasks = [];
-            function ShowAddTask() {
-                document.getElementById("frm1").reset();
-                console.log("ds");
-
-                document.getElementById("AddNewTask").style.display = "block";
-                for (var i = 0; i < tasks.length; i++) {
-                    document.getElementById("Dependencises").innerHTML = `<option>${tasks[i].name}</option>`;
-                }
-            }
-            function SubmitTheTask() {
-
-
-
-                var Ob = {
-                    start: document.getElementById("StartDate").value,
-                    end: document.getElementById("EndDate").value,
-                    name: document.getElementById("TaskName").value,
-                    id: document.getElementById("ID").value,
-                    progress: parseInt(document.getElementById("Progress").value),
-                    dependencies: document.getElementById("Dependencises").value,
-                    DependantElements: document.getElementById("DependantElements").value
-                }
-
-                tasks.push(Ob);
-
-                var gantt_chart = new Gantt(".gantt-target", tasks, {
-                    on_click: function (task) {
-                        console.log(task);
-                    },
-                    on_date_change: function (task, start, end) {
-                        console.log(task, start, end);
-                    },
-                    on_progress_change: function (task, progress) {
-                        console.log(task, progress);
-                    },
-                    on_view_change: function (mode) {
-                        console.log(mode);
-                    },
-                    view_mode: 'Month',
-                    language: 'en',
-                    custom_popup_html: function (task) {
-                        // the task object will contain the updated
-                        // dates and progress value
-                        return `
-<div class="details-container"  style="width:500px; padding:10px;">
-<h5>${task.name}</h5>
-<p>Dependent Elements are:</p>
-<p>1-${task.DependantElements}</p>
-</div>
-`;
-                    }
-                });
-
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:powderblue;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${Ob.name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${Ob.start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${Ob.end}</h6></td>
-</tr>`
-                document.getElementById("AddNewTask").style.display = "none";
-            }
-            //            function ClearTasks() {
-            //                tasks = [];
-
-            //                var gantt_chart = new Gantt(".gantt-target", tasks, {
-            //                    on_click: function (task) {
-            //                        //console.log(task);
-            //                    },
-            //                    on_date_change: function (task, start, end) {
-            //                        //console.log(task, start, end);
-            //                    },
-            //                    on_progress_change: function (task, progress) {
-            //                        //console.log(task, progress);
-            //                    },
-            //                    on_view_change: function (mode) {
-            //                        //console.log(mode);
-            //                    },
-            //                    view_mode: 'Month',
-            //                    language: 'en',
-            //                    custom_popup_html: function (task) {
-            //                        // the task object will contain the updated
-            //                        // dates and progress value
-            //                        return `
-            //<div class="details-container"  style="width:500px; padding:10px;">
-            //<h5>${task.name}</h5>
-            //<p>Dependent Elements are:</p>
-            //<p>1-${task.DependantElements}</p>
-            //<p>1-${task.DependantElements}</p>
-            //<p>1-${task.DependantElements}</p>
-            //<p>1-${task.DependantElements}</p>
-            //</div>
-            //`;
-            //                    }
-            //                });
-
-            //                document.getElementById("tableofContenets").innerHTML = ``
-
-            //            }
-            function CancelSubmission() {
-                document.getElementById("AddNewTask").style.display = "none";
-            }
-
-            document.getElementById("ShowAddTask").addEventListener("click", () => {
-                ShowAddTask();
-            })
-            document.getElementById("SubmitTheTask").addEventListener("click", () => {
-                SubmitTheTask();
-            })
-            //document.getElementById("ClearTasks").addEventListener("click", () => {
-            //    ClearTasks();
-            //})
-            document.getElementById("CancelSubmission").addEventListener("click", () => {
-                CancelSubmission();
-            })
-            var gantt_chart = new Gantt(".gantt-target", tasks, {
-                on_click: function (task) {
-                    //console.log(task);
-                },
-                on_date_change: function (task, start, end) {
-                    //console.log(task, start, end);
-                },
-                on_progress_change: function (task, progress) {
-                    //console.log(task, progress);
-                },
-                on_view_change: function (mode) {
-                    //console.log(mode);
-                },
-                view_mode: 'Month',
-                language: 'en',
-                custom_popup_html: function (task) {
-                    // the task object will contain the updated
-                    // dates and progress value
-                    return `
-<div class="details-container"  style="width:500px; padding:10px;">
-<h5>${task.name}</h5>
-<p>Dependent Elements are:</p>
-<p>1-${task.DependantElements}</p>
-<p>1-${task.DependantElements}</p>
-<p>1-${task.DependantElements}</p>
-<p>1-${task.DependantElements}</p>
-</div>
-`;
-                }
-            });
-        }
 
         function SubmitTheProject() {
 
-            document.getElementById("AddNewTask").style.display = "none";
             document.getElementById("PlanningDiv").style.display = "block";
             document.getElementById("Starting").style.display = "none";
+            //document.getElementById("ProjectStartDate").defaultValue = "2020-01-01";
 
-            function CalculateDays(start, end, percent) {
-                console.log(`Calculate Days`);
-                console.log(`Start is ${start}`);
-                console.log(`End is ${end}`);
-                console.log(`Percent is ${percent}`);
-                var startday = Math.abs(parseInt(start.substring(start.length - 2, start.length)));
+            //document.getElementById("ProjectEndDate").value
+
+            function CalculateDays(start, duration, percent) {
+                //console.log(`Calculate Days`);
+                //console.log(`Start is ${start}`);
+                //console.log(`End is ${duration}`);
+                //console.log(`Percent is ${percent}`);
+                var startday = Math.abs(parseInt(start.substring(0, 2)));
                 //console.log(`StartDay IN CalcDays = ${startday}`);
-                var startmonth = parseInt(start.substring(5, 7));
-                                                    /*console.log(`StartMonth IN CalcDays = ${startmonth}`)*/;
+                var startmonth = parseInt(start.substring(3, 5));
+                            /*console.log(`StartMonth IN CalcDays = ${startmonth}`)*/;
 
-                var endtday = Math.abs(parseInt(end.substring(end.length - 2, end.length)));
+
+
+                var numberOfMonthes = Math.floor(duration / 30);
+                //console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
+                var numberOfDays = Math.floor(((duration / 30) - Math.floor(duration / 30)) * 30);
+                //console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
+
+
+                var endtday = startday + numberOfDays;
                 //console.log(`EndDay IN CalcDays = ${endtday}`);
-                var endtmonth = parseInt(end.substring(5, 7));
+                var endtmonth = startmonth + numberOfMonthes;
                 //console.log(`EndMonth IN CalcDays = ${endtmonth}`);
 
                 var NoOfDays = ((endtmonth - startmonth) * 30) + (endtday - startday);
-                console.log(`Number Of Days IN CalcDays = ${NoOfDays}`);
+                //console.log(`Number Of Days IN CalcDays = ${NoOfDays}`);
 
-                var FinalNumberOfDays = NoOfDays * (percent / 100);
-                console.log(`Total Final Number IN CalcDays = ${FinalNumberOfDays}`);
+                var FinalNumberOfDays = Math.floor(NoOfDays * (percent / 100));
+                //console.log(`Total Final Number IN CalcDays = ${FinalNumberOfDays}`);
 
                 return FinalNumberOfDays;
             }
 
             function CalculateStartDate(Percen, taskId, DependentTaskId) {
-                console.log(`Start Date`);
-                //console.log(`TaskId = ${taskId}`);
+                //console.log(`Start Date`);
+                console.log(`TaskId = ${taskId}`);
                 var S;
-                if (taskId.length == 3) {
+                if (taskId > 10 && taskId < 99) {
 
-                    var x = parseInt(taskId.substring(0, 1));
-                    var y = parseInt(taskId.substring(2, 3));
+                    //var x = parseInt(taskId.substring(0, 1));
+                    //var y = parseInt(taskId.substring(2, 3));
                     //var taskPercent = Percen[x + y + 1];
                     var PreviousPercentage = 0;
-                    if (y == 0) {
+                    if (taskId == 11) {
                         PreviousPercentage = 0;
-                    } else if (y == 1) {
+                    } else if (taskId == 12) {
                         PreviousPercentage = Percen01[1];
                     } else {
                         PreviousPercentage = Percen01[1] + Percen02[1];
                     }
                     for (var i = 0; i < PhaseOne.length; i++) {
                         if (DependentTaskId == PhaseOne[i].id) {
-                            PrevExcutionDays = CalculateDays(PhaseOne[i].start, PhaseOne[i].end, PreviousPercentage);
-
+                            PrevExcutionDays = CalculateDays(PhaseOne[i].start_date, PhaseOne[i].duration, PreviousPercentage);
+                            console.log(`PrevExcutionDays = ${PrevExcutionDays}`);
                             //var numberOfMonthes = Math.ceil(PrevExcutionDays / 30);
                             //var numberOfDays = Math.round(PrevExcutionDays % 30);
 
-
-
-
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
-                            console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
-                            console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
+                            //console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            //console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
+
+                            var startday = Math.abs(parseInt(PhaseOne[i].start_date.substring(0, 2)));
+                            var startmonth = parseInt(PhaseOne[i].start_date.substring(3, 5));
 
 
+                            var d = (numberOfDays + startday);
+                            var m = (numberOfMonthes + startmonth);
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                //S = `2020-${m}-${d}`;
+                                S = `${d}-${m}-2020`;
+                            } else {
+                                S = `${d}-${m}-2020`;
+                            }
 
 
-                            var startday = Math.abs(parseInt(PhaseOne[i].start.substring(PhaseOne[i].start.length - 2, PhaseOne[i].start.length)));
-                            var startmonth = parseInt(PhaseOne[i].start.substring(5, 7));
-
-                            d = (numberOfDays + startday);
-                            m = (numberOfMonthes + startmonth);
-
-                            S = `2020-${m}-${d}`;
                         }
                     }
 
                 } else {
-                    var x = parseInt(taskId.substring(0, 1));
+                    var x = (Math.floor(taskId / 100)) - 1;
                     //console.log(`x = ${x}`);
-                    var y = parseInt(taskId.substring(2, 3));
+                    var y = (Math.floor((taskId - 100) / 10)) - 1;
                     //console.log(`y = ${y}`);
-                    var z = parseInt(taskId.substring(4, 5));
+                    var z = (taskId - (((x + 1) * 100) + ((y + 1) * 10))) - 1;
                     //console.log(`z = ${z}`);
                     var taskPercent = Percen[x + y + z + 2];
                     var PreviousPercentage = 0;
@@ -424,36 +184,38 @@
                     for (var i = 0; i < PhaseTwo.length; i++) {
                         if (DependentTaskId == PhaseTwo[i].id) {
                             //console.log(`Dependant Task Name = ${PhaseTwo[i].name}`)
-                            PrevExcutionDays = CalculateDays(PhaseTwo[i].start, PhaseTwo[i].end, PreviousPercentage);
+                            PrevExcutionDays = CalculateDays(PhaseTwo[i].start_date, PhaseTwo[i].duration, PreviousPercentage);
                             //console.log(`PrevExcutionDays = ${PrevExcutionDays}`);
-
 
                             //var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             ////console.log(`numberOfMonthes = ${numberOfMonthes}`);
                             //var numberOfDays = Math.round(PrevExcutionDays % 30);
                             ////console.log(`numberOfDays = ${numberOfDays}`);
 
-
-
-
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
 
-
-
-                            var startday = Math.abs(parseInt(PhaseTwo[i].start.substring(PhaseTwo[i].start.length - 2, PhaseTwo[i].start.length)));
+                            var startday = Math.abs(parseInt(PhaseTwo[i].start_date.substring(0, 2)));
                             //console.log(`startday = ${startday}`);
-                            var startmonth = parseInt(PhaseTwo[i].start.substring(5, 7));
+                            var startmonth = parseInt(PhaseTwo[i].start_date.substring(3, 5));
                             //console.log(`startmonth = ${startmonth}`);
 
-                            d = (numberOfDays + startday);
+                            var d = (numberOfDays + startday);
                             //console.log(`Day Number is = ${d}`);
-                            m = (numberOfMonthes + startmonth);
+                            var m = (numberOfMonthes + startmonth);
                             //console.log(`Month Number is = ${m}`);
 
-                            S = `2020-${m}-${d}`;
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                S = `${d}-${m}-2020`;
+                            } else {
+                                S = `${d}-${m}-2020`;
+                            }
+
+                            S = `${d}-${m}-2020`;
                         }
                     }
                 }
@@ -475,30 +237,31 @@
                             var PrevExcutionDays = CalculateDays(PhaseOne[i].start, PhaseOne[i].end, percentage);
                             console.log(`PrevExcutionDays = ${PrevExcutionDays}`);
 
-
-
-
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
-
-
 
                             //var numberOfMonthes = Math.round(PrevExcutionDays / 30);
                             ////console.log(`numberOfMonthes = ${numberOfMonthes}`);
                             //var numberOfDays = Math.round(PrevExcutionDays % 30);
                             ////console.log(`numberOfDays = ${numberOfDays}`);
 
-                            var startday = Math.abs(parseInt(startDateOfTheTask.substring(startDateOfTheTask.length - 2, startDateOfTheTask.length)));
+                            var startday = Math.abs(parseInt(startDateOfTheTask.substring(0, 2)));
                             console.log(`startday = ${startday}`);
-                            var startmonth = parseInt(startDateOfTheTask.substring(5, 7));
+                            var startmonth = parseInt(startDateOfTheTask.substring(3, 5));
                             console.log(`startmonth = ${startmonth}`);
 
-                            d = (numberOfDays + startday);
-                            m = (numberOfMonthes + startmonth);
+                            var d = (numberOfDays + startday);
+                            var m = (numberOfMonthes + startmonth);
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                E = `${d}-${m}-2020`;
 
-                            E = `2020-${m}-${d}`;
+                            } else {
+                                E = `${d}-${m}-2020`;
+                            }
                         }
                     }
                 }
@@ -509,15 +272,14 @@
                             var PrevExcutionDays = CalculateDays(PhaseTwo[i].start, PhaseTwo[i].end, percentage);
                             console.log(`PrevExcutionDays = ${PrevExcutionDays}`);
 
-
                             var numberOfMonthes = Math.floor(PrevExcutionDays / 30);
                             console.log(`numberOfMonthesaaaaaaaaaa = ${numberOfMonthes}`);
-                            var numberOfDays = Math.ceil(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
+                            var numberOfDays = Math.floor(((PrevExcutionDays / 30) - Math.floor(PrevExcutionDays / 30)) * 30);
                             console.log(`numberOfDaysaaaaaaaaaaaaa = ${numberOfDays}`);
 
-                            var startday = Math.abs(parseInt(startDateOfTheTask.substring(startDateOfTheTask.length - 2, startDateOfTheTask.length)));
+                            var startday = Math.abs(parseInt(startDateOfTheTask.substring(0, 2)));
                             console.log(`startday = ${startday}`);
-                            var startmonth = parseInt(startDateOfTheTask.substring(5, 7));
+                            var startmonth = parseInt(startDateOfTheTask.substring(3, 5));
                             console.log(`startmonth = ${startmonth}`);
 
                             d = (numberOfDays + startday);
@@ -525,12 +287,16 @@
                             m = (numberOfMonthes + startmonth);
                             //console.log(`numberOfMonthes is ${numberOfMonthes}`);
 
-                            E = `2020-${m}-${d}`;
+                            if (d > 30) {
+                                d = d - 30;
+                                m++;
+                                E = `${d}-${m}-2020`;
+                            } else {
+                                E = `${d}-${m}-2020`;
+                            }
                         }
                     }
                 }
-
-
                 return E;
             }
 
@@ -539,150 +305,280 @@
             var Percen03 = [100, 40, 60, 40];
             var PhaseOne = [
                 {
-                    start: document.getElementById("ProjectStartDate").value,
-                    end: document.getElementById("ProjectEndDate").value,
-                    name: 'Gaurd Room Project',
-                    id: "0",
-                    progress: 100,
-                    dependencies: '',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 1,
+                    "text": 'Total Project Duration',
+                    "start_date": `${document.getElementById("ProjectStartDate").value}`,
+                    "duration": `${document.getElementById("ProjectEndDate").value}`,
+                    type: gantt.config.types.project,
+                    "progress": 1,
+                    "open": true
+                    //start: document.getElementById("ProjectStartDate").value,
+                    //end: document.getElementById("ProjectEndDate").value,
+                    //name: 'Gaurd Room Project',
+                    //id: "0",
+                    //progress: 100,
+                    //dependencies: '',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 }
             ];
             var PhaseTwo = [
                 {
-                    start: CalculateStartDate(Percen01, "0-0", "0"),
-                    end: CalculateEndDate(Percen01, "0-0", "0", 20),
-                    name: 'Architecture Design',
-                    id: "0-0",
-                    progress: 100,
-                    dependencies: '0',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 11,
+                    "text": 'Footing Works',
+                    "start_date": `${CalculateStartDate(Percen01, 11, 1)}`,
+                    "duration": `${CalculateDays(PhaseOne[0].start_date, PhaseOne[0].duration, 20)}`,
+                    type: gantt.config.types.project,
+                    "parent": "1",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen01, "0-0", "0"),
+                    //end: CalculateEndDate(Percen01, "0-0", "0", 20),
+                    //name: 'Architecture Design',
+                    //id: "0-0",
+                    //progress: 100,
+                    //dependencies: '0',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen02, "0-1", "0"),
-                    end: CalculateEndDate(Percen02, "0-1", "0", 40),
-                    name: 'Construction Work',
-                    id: "0-1",
-                    progress: 100,
-                    dependencies: '0-0',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 12,
+                    "text": 'Concrete Work',
+                    "start_date": `${CalculateStartDate(Percen02, 12, 1)}`,
+                    "duration": `${CalculateDays(PhaseOne[0].start_date, PhaseOne[0].duration, 40)}`,
+                    type: gantt.config.types.project,
+                    "parent": "1",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen02, "0-1", "0"),
+                    //end: CalculateEndDate(Percen02, "0-1", "0", 40),
+                    //name: 'Construction Work',
+                    //id: "0-1",
+                    //progress: 100,
+                    //dependencies: '0-0',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen03, "0-2", "0"),
-                    end: CalculateEndDate(Percen03, "0-2", "0", 40),
-                    name: 'Decoration Work',
-                    id: "0-2",
-                    progress: 100,
-                    dependencies: '0-1',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 13,
+                    "text": 'Brick Work',
+                    "start_date": `${CalculateStartDate(Percen03, 13, 1)}`,
+                    "duration": `${CalculateDays(PhaseOne[0].start_date, PhaseOne[0].duration, 40)}`,
+                    type: gantt.config.types.project,
+                    "parent": "1",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen03, "0-2", "0"),
+                    //end: CalculateEndDate(Percen03, "0-2", "0", 40),
+                    //name: 'Decoration Work',
+                    //id: "0-2",
+                    //progress: 100,
+                    //dependencies: '0-1',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
             ];
             var PhaseThree = [
                 {
-                    start: CalculateStartDate(Percen01, "0-0-0", "0-0"),
-                    end: CalculateEndDate(Percen01, "0-0-0", "0-0", 40),
-                    name: 'Draft_Architecture_Drawings',
-                    id: "0-0-0",
-                    progress: 50,
-                    dependencies: '0-0',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 111,
+                    "text": 'Excavate soil up to the required depth',
+                    "start_date": `${CalculateStartDate(Percen01, 111, 11)}`,
+                    "duration": `${CalculateDays(PhaseTwo[0].start_date, PhaseTwo[0].duration, 40)}`,
+                    type: gantt.config.types.task,
+                    "parent": "11",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen01, "0-0-0", "0-0"),
+                    //end: CalculateEndDate(Percen01, "0-0-0", "0-0", 40),
+                    //name: 'Draft_Architecture_Drawings',
+                    //id: "0-0-0",
+                    //progress: 50,
+                    //dependencies: '0-0',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen01, "0-0-1", "0-0"),
-                    end: CalculateEndDate(Percen01, "0-0-1", "0-0", 20),
-                    name: 'Prepare_Construction_Drawings',
-                    id: "0-0-1",
-                    progress: 40,
-                    dependencies: '0-0-0',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 112,
+                    "text": 'Pour 3” of plane cement-sand paste.',
+                    "start_date": `${CalculateStartDate(Percen01, 112, 11)}`,
+                    "duration": `${CalculateDays(PhaseTwo[0].start_date, PhaseTwo[0].duration, 20)}`,
+                    type: gantt.config.types.task,
+                    "parent": "11",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen01, "0-0-1", "0-0"),
+                    //end: CalculateEndDate(Percen01, "0-0-1", "0-0", 20),
+                    //name: 'Prepare_Construction_Drawings',
+                    //id: "0-0-1",
+                    //progress: 40,
+                    //dependencies: '0-0-0',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen01, "0-0-2", "0-0"),
-                    end: CalculateEndDate(Percen01, "0-0-2", "0-0", 10),
-                    name: 'Agreement_Of_The_Drawings',
-                    id: "0-0-2",
-                    progress: 30,
-                    dependencies: '0-0-1',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 113,
+                    "text": 'Lay reinforcement maintaining the required spacing using spacers.',
+                    "start_date": `${CalculateStartDate(Percen01, 113, 11)}`,
+                    "duration": `${CalculateDays(PhaseTwo[0].start_date, PhaseTwo[0].duration, 10)}`,
+                    type: gantt.config.types.task,
+                    "parent": "11",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen01, "0-0-2", "0-0"),
+                    //end: CalculateEndDate(Percen01, "0-0-2", "0-0", 10),
+                    //name: 'Agreement_Of_The_Drawings',
+                    //id: "0-0-2",
+                    //progress: 30,
+                    //dependencies: '0-0-1',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen01, "0-0-3", "0-0"),
-                    end: CalculateEndDate(Percen01, "0-0-3", "0-0", 30),
-                    name: 'Sign_Agreement_With_Owner',
-                    id: "0-0-3",
-                    progress: 15,
-                    dependencies: '0-0-2',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 114,
+                    "text": 'Pour concrete to the desired depth & Cure',
+                    "start_date": `${CalculateStartDate(Percen01, 114, 11)}`,
+                    "duration": `${CalculateDays(PhaseTwo[0].start_date, PhaseTwo[0].duration, 30)}`,
+                    type: gantt.config.types.task,
+                    "parent": "11",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen01, "0-0-3", "0-0"),
+                    //end: CalculateEndDate(Percen01, "0-0-3", "0-0", 30),
+                    //name: 'Sign_Agreement_With_Owner',
+                    //id: "0-0-3",
+                    //progress: 15,
+                    //dependencies: '0-0-2',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen02, "0-1-0", "0-1"),
-                    end: CalculateEndDate(Percen02, "0-1-0", "0-1", 25),
-                    name: 'Excavation',
-                    id: "0-1-0",
-                    progress: 25,
-                    dependencies: '0-0-3',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 121,
+                    "text": 'Column reinforcement work',
+                    "start_date": `${CalculateStartDate(Percen02, 121, 12)}`,
+                    "duration": `${CalculateDays(PhaseTwo[1].start_date, PhaseTwo[1].duration, 25)}`,
+                    type: gantt.config.types.task,
+                    "parent": "12",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen02, "0-1-0", "0-1"),
+                    //end: CalculateEndDate(Percen02, "0-1-0", "0-1", 25),
+                    //name: 'Excavation',
+                    //id: "0-1-0",
+                    //progress: 25,
+                    //dependencies: '0-0-3',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen02, "0-1-1", "0-1"),
-                    end: CalculateEndDate(Percen02, "0-1-1", "0-1", 15),
-                    name: 'Pour Concrete',
-                    id: "0-1-1",
-                    progress: 30,
-                    dependencies: '0-1-0',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 122,
+                    "text": 'Column formwork, and Pouring concrete into column.',
+                    "start_date": `${CalculateStartDate(Percen02, 122, 12)}`,
+                    "duration": `${CalculateDays(PhaseTwo[1].start_date, PhaseTwo[1].duration, 15)}`,
+                    type: gantt.config.types.task,
+                    "parent": "12",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen02, "0-1-1", "0-1"),
+                    //end: CalculateEndDate(Percen02, "0-1-1", "0-1", 15),
+                    //name: 'Pour Concrete',
+                    //id: "0-1-1",
+                    //progress: 30,
+                    //dependencies: '0-1-0',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen02, "0-1-2", "0-1"),
-                    end: CalculateEndDate(Percen02, "0-1-2", "0-1", 15),
-                    name: 'Level Concrete',
-                    id: "0-1-2",
-                    progress: 75,
-                    dependencies: '0-1-1',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 123,
+                    "text": 'Forming The Beam Wood Work',
+                    "start_date": `${CalculateStartDate(Percen02, 123, 12)}`,
+                    "duration": `${CalculateDays(PhaseTwo[1].start_date, PhaseTwo[1].duration, 15)}`,
+                    type: gantt.config.types.task,
+                    "parent": "12",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen02, "0-1-2", "0-1"),
+                    //end: CalculateEndDate(Percen02, "0-1-2", "0-1", 15),
+                    //name: 'Level Concrete',
+                    //id: "0-1-2",
+                    //progress: 75,
+                    //dependencies: '0-1-1',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen02, "0-1-3", "0-1"),
-                    end: CalculateEndDate(Percen02, "0-1-3", "0-1", 45),
-                    name: 'Column Work',
-                    id: "0-1-3",
-                    progress: 45,
-                    dependencies: '0-1-2',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 124,
+                    "text": 'Setting out and Leveling',
+                    "start_date": `${CalculateStartDate(Percen02, 124, 12)}`,
+                    "duration": `${CalculateDays(PhaseTwo[1].start_date, PhaseTwo[1].duration, 20)}`,
+                    type: gantt.config.types.task,
+                    "parent": "12",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen02, "0-1-3", "0-1"),
+                    //end: CalculateEndDate(Percen02, "0-1-3", "0-1", 45),
+                    //name: 'Column Work',
+                    //id: "0-1-3",
+                    //progress: 45,
+                    //dependencies: '0-1-2',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen03, "0-2-0", "0-2"),
-                    end: CalculateEndDate(Percen03, "0-2-0", "0-2", 60),
-                    name: 'Painting And Tiling',
-                    id: "0-2-0",
-                    progress: 15,
-                    dependencies: '0-1-3',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 125,
+                    "text": 'Concrete Pouring For Beams',
+                    "start_date": `${CalculateStartDate(Percen02, 125, 12)}`,
+                    "duration": `${CalculateDays(PhaseTwo[1].start_date, PhaseTwo[1].duration, 25)}`,
+                    type: gantt.config.types.task,
+                    "parent": "12",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen02, "0-1-3", "0-1"),
+                    //end: CalculateEndDate(Percen02, "0-1-3", "0-1", 45),
+                    //name: 'Column Work',
+                    //id: "0-1-3",
+                    //progress: 45,
+                    //dependencies: '0-1-2',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
                 {
-                    start: CalculateStartDate(Percen03, "0-2-1", "0-2"),
-                    end: CalculateEndDate(Percen03, "0-2-1", "0-2", 40),
-                    name: 'Interiors And Furniture',
-                    id: "0-2-1",
-                    progress: 79,
-                    dependencies: '0-2-0',
-                    custom_class: 'bar-milestone',
-                    DependantElements: ""
+                    "id": 131,
+                    "text": 'Setting up a level line',
+                    "start_date": `${CalculateStartDate(Percen03, 131, 13)}`,
+                    "duration": `${CalculateDays(PhaseTwo[2].start_date, PhaseTwo[2].duration, 60)}`,
+                    type: gantt.config.types.task,
+                    "parent": "13",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen03, "0-2-0", "0-2"),
+                    //end: CalculateEndDate(Percen03, "0-2-0", "0-2", 60),
+                    //name: 'Painting And Tiling',
+                    //id: "0-2-0",
+                    //progress: 15,
+                    //dependencies: '0-1-3',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
+                },
+                {
+                    "id": 132,
+                    "text": 'Laying the courses of bricks',
+                    "start_date": `${CalculateStartDate(Percen03, 132, 13)}`,
+                    "duration": `${CalculateDays(PhaseTwo[2].start_date, PhaseTwo[2].duration, 40)}`,
+                    type: gantt.config.types.task,
+                    "parent": "13",
+                    "progress": 1,
+                    "open": true
+                    //start: CalculateStartDate(Percen03, "0-2-1", "0-2"),
+                    //end: CalculateEndDate(Percen03, "0-2-1", "0-2", 40),
+                    //name: 'Interiors And Furniture',
+                    //id: "0-2-1",
+                    //progress: 79,
+                    //dependencies: '0-2-0',
+                    //custom_class: 'bar-milestone',
+                    //DependantElements: ""
                 },
             ];
+
 
             console.log(PhaseThree);
             console.log(PhaseTwo);
@@ -690,221 +586,102 @@
             var tasks = [
 
             ]
-            var DependantElements = [];
-//            for (var i = 0; i < PhaseOne.length; i++) {
-//                tasks.push(PhaseOne[i]);
-//                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:tomato;">
-//<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseOne[i].name}</h6></td>
-//<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseOne[i].start}</h6></td>
-//<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseOne[i].end}</h6></td>
-//</tr>`
-//            }
+
+            for (var i = 0; i < 1; i++) {
+                tasks.push(PhaseOne[i]);
+            }
+
+
             for (var i = 0; i < 1; i++) {
                 tasks.push(PhaseTwo[i]);
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:powderblue;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].end}</h6></td>
-</tr>`
             }
             for (var i = 0; i < 4; i++) {
                 tasks.push(PhaseThree[i]);
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:#EBED4B;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].end}</h6></td>
-</tr>`
             }
+
 
             for (var i = 1; i < 2; i++) {
                 tasks.push(PhaseTwo[i]);
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:powderblue;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].end}</h6></td>
-</tr>`
             }
+
             for (var i = 4; i < 8; i++) {
                 tasks.push(PhaseThree[i]);
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:#EBED4B;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].end}</h6></td>
-</tr>`
             }
+
 
             for (var i = 2; i < 3; i++) {
                 tasks.push(PhaseTwo[i]);
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:powderblue;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseTwo[i].end}</h6></td>
-</tr>`
             }
-            for (var i = 8; i < 10; i++) {
+            for (var i = 8; i < 11; i++) {
                 tasks.push(PhaseThree[i]);
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:#EBED4B;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${PhaseThree[i].end}</h6></td>
-</tr>`
             }
-            //console.log(tasks);
 
 
 
-            for (var i = 0; i < tasks.length; i++) {
-                document.getElementById("Dependencises").innerHTML = `<option>${tasks[i].name}</option>`;
-            }
-            document.getElementById("DependantElements").addEventListener("click", (event) => {
-                console.log(event);
-                DependantElements.push(event.innerHTML)
-            })
-            function ShowAddTask() {
-                document.getElementById("frm1").reset();
-                console.log("ds");
-
-                document.getElementById("AddNewTask").style.display = "block";
-                for (var i = 0; i < tasks.length; i++) {
-                    document.getElementById("Dependencises").innerHTML = `<option>${tasks[i].name}</option>`;
-                }
-            }
-            function SubmitTheTask() {
 
 
 
-                var Ob = {
-                    start: document.getElementById("StartDate").value,
-                    end: document.getElementById("EndDate").value,
-                    name: document.getElementById("TaskName").value,
-                    id: document.getElementById("ID").value,
-                    progress: parseInt(document.getElementById("Progress").value),
-                    dependencies: document.getElementById("Dependencises").value,
-                    DependantElements: document.getElementById("DependantElements").value
-                }
 
-                tasks.push(Ob);
 
-                var gantt_chart = new Gantt(".gantt-target", tasks, {
-                    on_click: function (task) {
-                        console.log(task);
-                    },
-                    on_date_change: function (task, start, end) {
-                        console.log(task, start, end);
-                    },
-                    on_progress_change: function (task, progress) {
-                        console.log(task, progress);
-                    },
-                    on_view_change: function (mode) {
-                        console.log(mode);
-                    },
-                    view_mode: 'Month',
-                    language: 'en',
-                    custom_popup_html: function (task) {
-                        // the task object will contain the updated
-                        // dates and progress value
-                        return `
-<div class="details-container"  style="width:500px; padding:10px;">
-<h5>${task.name}</h5>
-<p>Dependent Elements are:</p>
-<p>1-${task.DependantElements}</p>
-</div>
-`;
-                    }
+
+            var demo_tasks = {
+                "data": tasks
+            };
+
+            function generateData(count, dateFrom, dateTo) {
+                var tasks = {
+                    data: [],
+                    links: []
+                };
+
+                count = parseInt(count, 10) || 100;
+
+                var date = new Date(dateFrom.getFullYear(), 5, 1);
+                var project_id = 1;
+                tasks.data.push({
+                    id: project_id,
+                    text: "Project1",
+                    start_date: date,
+                    type: gantt.config.types.project,
+                    open: true
                 });
+                for (var i = 1; i < count; i++) {
+                    date = gantt.date.add(date, 1, "day");
+                    var task = {
+                        id: i + 1,
+                        start_date: date,
+                        text: "Task " + (i + 1),
+                        duration: 8,
+                        parent: project_id
+                    };
 
-                document.getElementById("tableofContenets").innerHTML += `<tr style="height:38px; background-color:powderblue;">
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${Ob.name}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${Ob.start}</h6></td>
-<td style="padding-top:0px; padding-bottom:0px;"><h6 style="font-size:10px;">${Ob.end}</h6></td>
-</tr>`
-                document.getElementById("AddNewTask").style.display = "none";
-            }
-//            function ClearTasks() {
-//                tasks = [];
+                    if (gantt.date.add(date, 8, "day").valueOf() > dateTo.valueOf()) {
+                        date = new Date(dateFrom);
+                        project_id = i + 1;
+                        delete task.parent;
+                        task.open = true;
+                    }
+                    tasks.data.push(task);
 
-//                var gantt_chart = new Gantt(".gantt-target", tasks, {
-//                    on_click: function (task) {
-//                        //console.log(task);
-//                    },
-//                    on_date_change: function (task, start, end) {
-//                        //console.log(task, start, end);
-//                    },
-//                    on_progress_change: function (task, progress) {
-//                        //console.log(task, progress);
-//                    },
-//                    on_view_change: function (mode) {
-//                        //console.log(mode);
-//                    },
-//                    view_mode: 'Month',
-//                    language: 'en',
-//                    custom_popup_html: function (task) {
-//                        // the task object will contain the updated
-//                        // dates and progress value
-//                        return `
-//<div class="details-container"  style="width:500px; padding:10px;">
-//<h5>${task.name}</h5>
-//<p>Dependent Elements are:</p>
-//<p>1-${task.DependantElements}</p>
-//<p>1-${task.DependantElements}</p>
-//<p>1-${task.DependantElements}</p>
-//<p>1-${task.DependantElements}</p>
-//</div>
-//`;
-//                    }
-//                });
-
-//                document.getElementById("tableofContenets").innerHTML = ``
-
-//            }
-            function CancelSubmission() {
-                document.getElementById("AddNewTask").style.display = "none";
-            }
-
-            document.getElementById("ShowAddTask").addEventListener("click", () => {
-                ShowAddTask();
-            })
-            document.getElementById("SubmitTheTask").addEventListener("click", () => {
-                SubmitTheTask();
-            })
-            //document.getElementById("ClearTasks").addEventListener("click", () => {
-            //    ClearTasks();
-            //})
-            document.getElementById("CancelSubmission").addEventListener("click", () => {
-                CancelSubmission();
-            })
-
-            var gantt_chart = new Gantt(".gantt-target", tasks, {
-                on_click: function (task) {
-                    //console.log(task);
-                },
-                on_date_change: function (task, start, end) {
-                    //console.log(task, start, end);
-                },
-                on_progress_change: function (task, progress) {
-                    //console.log(task, progress);
-                },
-                on_view_change: function (mode) {
-                    //console.log(mode);
-                },
-                view_mode: 'Month',
-                language: 'en',
-                custom_popup_html: function (task) {
-                    // the task object will contain the updated
-                    // dates and progress value
-                    return `
-<div class="details-container"  style="width:500px; padding:10px;">
-<h5>${task.name}</h5>
-<p>Dependent Elements are:</p>
-<p>1-${task.DependantElements}</p>
-<p>1-${task.DependantElements}</p>
-<p>1-${task.DependantElements}</p>
-<p>1-${task.DependantElements}</p>
-</div>
-`;
                 }
-            });
+                return tasks;
+            }
+
+
+
+
+            gantt.config.auto_types = true;
+            gantt.config.fit_tasks = true;
+            gantt.templates.task_text = function (s, e, task) {
+                return "Export " + task.text;
+            };
+
+            gantt.config.columns[0].template = function (obj) {
+                return obj.text;
+            };
+
+            gantt.init("gantt_here");
+            gantt.parse(demo_tasks);
         }
     </script>
 </body>
-</html>

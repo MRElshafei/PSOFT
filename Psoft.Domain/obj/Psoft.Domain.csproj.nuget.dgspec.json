@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj": {}
+    "E:\\PSOFT FINAL\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj": {}
   },
   "projects": {
-    "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj": {
+    "E:\\PSOFT FINAL\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj",
+        "projectUniqueName": "E:\\PSOFT FINAL\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj",
         "projectName": "Psoft.Domain",
-        "projectPath": "F:\\PSOFT\\Psoft\\Psoft.Domain\\Psoft.Domain.csproj",
-        "packagesPath": "C:\\Users\\Mohamed\\.nuget\\packages\\",
-        "outputPath": "F:\\PSOFT\\Psoft\\Psoft.Domain\\obj\\",
+        "projectPath": "E:\\PSOFT FINAL\\PSOFT\\Psoft.Domain\\Psoft.Domain.csproj",
+        "packagesPath": "C:\\Users\\iti\\.nuget\\packages\\",
+        "outputPath": "E:\\PSOFT FINAL\\PSOFT\\Psoft.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\iti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

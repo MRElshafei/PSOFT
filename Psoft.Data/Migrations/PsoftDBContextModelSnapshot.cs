@@ -48,6 +48,42 @@ namespace Psoft.Data.Migrations
                     b.ToTable("BOQS");
                 });
 
+            modelBuilder.Entity("Psoft.Domain.Contractor", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Contractors");
+                });
+
+            modelBuilder.Entity("Psoft.Domain.Owner", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Owner");
+                });
+
             modelBuilder.Entity("Psoft.Domain.Projects", b =>
                 {
                     b.Property<int>("ID")
@@ -60,6 +96,9 @@ namespace Psoft.Data.Migrations
 
                     b.Property<string>("Consultant")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ContractorID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Currency")
                         .HasColumnType("nvarchar(max)");
@@ -76,16 +115,26 @@ namespace Psoft.Data.Migrations
                     b.Property<string>("Owner")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("OwnerID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Path")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ProjectTeam")
+                        .HasColumnType("int");
+
                     b.Property<int?>("UsersID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ContractorID");
+
+                    b.HasIndex("OwnerID");
 
                     b.HasIndex("UsersID");
 
@@ -116,6 +165,14 @@ namespace Psoft.Data.Migrations
 
             modelBuilder.Entity("Psoft.Domain.Projects", b =>
                 {
+                    b.HasOne("Psoft.Domain.Contractor", null)
+                        .WithMany("projects")
+                        .HasForeignKey("ContractorID");
+
+                    b.HasOne("Psoft.Domain.Owner", null)
+                        .WithMany("projects")
+                        .HasForeignKey("OwnerID");
+
                     b.HasOne("Psoft.Domain.Users", null)
                         .WithMany("projects")
                         .HasForeignKey("UsersID");

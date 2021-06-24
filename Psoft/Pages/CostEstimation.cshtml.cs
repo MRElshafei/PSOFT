@@ -18,6 +18,8 @@ namespace Psoft.Pages.WebsitePages
         public List<Wall> ListOfWalls { set; get; }
         private readonly IManageProject Project;
 
+        public string ProjectName { get; set; }
+
         private readonly IManageBOQ IManageBOQ;
 
         IManageProjects manageProjects;
@@ -33,7 +35,7 @@ namespace Psoft.Pages.WebsitePages
 
         public BOQDTOList ItemsList { get; set; }
 
-        public CostEstimationModel(IManageProject manageProject, IManageBOQ IManageBOQ,IManageProjects manageProjects)
+        public CostEstimationModel(IManageProject manageProject, IManageBOQ IManageBOQ, IManageProjects manageProjects)
         {
             this.Project = manageProject;
 
@@ -48,7 +50,7 @@ namespace Psoft.Pages.WebsitePages
 
             ItemsList = IManageBOQ.GetITemsList();
 
-
+            ProjectName = manageProjects.getActivatedProjectName();
             string Path = manageProjects.getPathOfActivatedProject();
             if (Path == null)
             {
@@ -69,10 +71,10 @@ namespace Psoft.Pages.WebsitePages
                 this.ListOfWalls = Project.InitializeWall(MyProject.XmlFile);
 
                 this.ListOfBeams = Project.InitializeBeam(MyProject.XmlFile);
-            
-            
 
-            if (!ItemId.HasValue)
+
+
+                if (!ItemId.HasValue)
                 {
 
                     _BOQDTO = new BOQDTO();
@@ -104,7 +106,7 @@ namespace Psoft.Pages.WebsitePages
             {
                 IManageBOQ.AddItem(_BOQDTO);
             }
-            return RedirectToPage("./CostEstimation");
+            return RedirectToPage("./Dashboard");
         }
     }
 }

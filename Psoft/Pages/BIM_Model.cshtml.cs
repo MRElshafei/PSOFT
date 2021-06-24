@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Psoft.Application.Manage_Projects;
@@ -11,41 +13,41 @@ namespace Psoft.Pages.WebsitePages
 {
     public class BIM_ModelModel : PageModel
     {
-        /*public List<Beam> ListOfBeams { set; get; }
-        public List<Column> ListOfColumns { set; get; }
-        public List<Slab> ListOfSlabs { set; get; }
-        public List<Wall> ListOfWalls { set; get; }
+
         private readonly IManageProject Project;
-
-
+        public string ProjectName { get; set; }
+        public string WexBIMUploadedFileUrl { get; set; }
         private readonly IManageProjects manageProjects;
 
         public BIM_ModelModel(IManageProject manageProject, IManageProjects manageProjects)
         {
             this.Project = manageProject;
-        }*/
+            this.manageProjects = manageProjects;
+        }
         public void OnGet()
         {
+            ProjectName = manageProjects.getActivatedProjectName();
+            var path = manageProjects.getPathOfActivatedProject();
+            Building Project = new Building();
 
-            //    string Path = manageProjects.getPathOfActivatedProject();
-            //    if (Path == null)
-            //    {
-            //        return RedirectToPage("./NotFound");
-            //    }
-            //    else
-            //    {
-            //        Building MyProject = new Building(Path);
+            var wexPath = Project.getWEXBIM(path);
+            string fileName = "CrossBIMBuilding.wexBIM";
+            var uploadParams = new RawUploadParams()
+            {  // by default, ResourceType is already set to "raw"
+                File = new FileDescription(wexPath),
+                Folder = "PSOFT",
+                PublicId = fileName  //File New Name
+            };
+            Account account = new Account(
+                  "dyavm0bhs",
+                  "793996812682882",
+                  "aklpFkL6fzMzYJMduGepwL83UU0");
+            Cloudinary cloudinary = new Cloudinary(account);
+            var uploadResult = cloudinary.Upload(uploadParams);
 
-            //        this.ListOfColumns = Project.InitializeColumn(MyProject.XmlFile);
+            WexBIMUploadedFileUrl = uploadResult.SecureUrl.ToString();
 
-            //        this.ListOfSlabs = Project.InitializeSlab(MyProject.XmlFile);
 
-            //        this.ListOfWalls = Project.InitializeWall(MyProject.XmlFile);
-
-            //        this.ListOfBeams = Project.InitializeBeam(MyProject.XmlFile);
-            //        return Page();
-            //    }
-            //}
         }
     }
 }

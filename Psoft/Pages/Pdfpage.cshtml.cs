@@ -30,6 +30,10 @@ namespace Psoft.Pages
         private readonly IManageBOQ IManageBOQ;
 
 
+
+        public string ProjectName { get; set; }
+
+
         public BOQDTOList ItemsList { get; set; }
 
         public PdfpageModel(IManageProject manageProject, IManageBOQ IManageBOQ, IManageProjects manageProjects)
@@ -42,7 +46,7 @@ namespace Psoft.Pages
             this.manageProjects = manageProjects;
         }
 
-      
+
 
         public ActionResult OnGet(int? id)
         {
@@ -50,6 +54,7 @@ namespace Psoft.Pages
             {
 
                 ItemsList = IManageBOQ.GetITemsList();
+                ProjectName = manageProjects.getActivatedProjectName();
 
 
 
